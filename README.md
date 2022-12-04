@@ -1,2 +1,2 @@
 # Spectre
-Silver DofE project
+Silver DofE project, started around a week before initial GitHub setup and commit.
