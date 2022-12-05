@@ -12,13 +12,25 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
+import org.lwjgl.util.vector.Vector3f;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
+import entities.Entity;
 import models.RawModel;
+import models.TexturedModel;
+import textures.ModelTexture;
 
 public class Loader {
 
+	public Entity loadObj(String fileName, Vector3f location, Vector3f rotation, float scale) {
+		RawModel model = OBJLoader.loadObjModel(fileName, this);
+		ModelTexture texture = new ModelTexture(this.loadTexture(fileName));
+		TexturedModel texturedModel = new TexturedModel(model, texture);
+		Entity entity = new Entity(texturedModel, location, rotation.x, rotation.y, rotation.z, 1f);
+		return entity;
+	}
+	
 	private List<Integer> vaos = new ArrayList<Integer>();
 	private List<Integer> vbos = new ArrayList<Integer>();
 	private List<Integer> textures = new ArrayList<Integer>();
@@ -47,7 +59,7 @@ public class Loader {
 	public int loadTexture(String fileName) {
 		Texture texture = null;
 		try {
-			File file = new File(new File(new File(this.getClass().getResource("Loader.class").getPath()).getParent()).getParent()+"/res/"+fileName+".png");
+			File file = new File(Loader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".png").getFile());
 			System.out.println(file);
 			texture = TextureLoader.getTexture("PNG", new FileInputStream(file.getPath()));
 		} catch (Exception e) {
