@@ -22,8 +22,8 @@ public class MainGameLoop {
 		StaticShader shader = new StaticShader();
 		Renderer renderer = new Renderer(shader);
 
-		Entity entity = loader.loadObj("dragon1", new Vector3f(0f,0f,-35f), new Vector3f(0f,0f,0f), 1);
-		Light light = new Light(new Vector3f(0f,0f,-30f), new Vector3f(1f,1f,1f));
+		Entity entity = loader.loadObj("dragon1", new Vector3f(0f,0f,-25f), new Vector3f(0f,0f,0f), 1);
+		Light light = new Light(new Vector3f(0f,0f,-20f), new Vector3f(1f,1f,1f));
 		Camera camera = new Camera();
 
 		InputThread it = new InputThread(100, camera);
