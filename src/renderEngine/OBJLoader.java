@@ -2,7 +2,6 @@ package renderEngine;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +82,7 @@ public class OBJLoader {
 				normalsArray[normI++] = norm.y;
 				normalsArray[normI++] = norm.z;
 			}
-			return loader.loadToVAO(verticesArray, indicesArray, textureArray);
+			return loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
 		} catch(Exception e) {
 			//error cube
 			return null;
