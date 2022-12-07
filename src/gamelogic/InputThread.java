@@ -27,14 +27,14 @@ public class InputThread extends Thread {
 	@Override
 	public void run() {
 		while(true) {
-			for(Entry<Integer, AbstractKey> e : keys.entrySet()) {
-				if(Keyboard.isKeyDown(e.getKey())) {
-					e.getValue().run();
-				}
-			}
 			try {
+				for(Entry<Integer, AbstractKey> e : keys.entrySet()) {
+					if(Keyboard.isKeyDown(e.getKey())) {
+						e.getValue().run();
+					}
+				}
 				Thread.sleep(1000/tps);
-			} catch (InterruptedException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
