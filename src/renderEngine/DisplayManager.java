@@ -22,6 +22,7 @@ public class DisplayManager {
 			Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
 			Display.create(new PixelFormat(), attribs);
 			Display.setTitle(TITLE);
+			Display.setResizable(true);
 //			ResourceLoader.setIcon();
 		} catch (LWJGLException e) {
 			e.printStackTrace();
@@ -31,6 +32,7 @@ public class DisplayManager {
 
 	public static void updateDisplay() {
 		Display.sync(FPS_CAP);
+		if (Display.wasResized()) GL11.glViewport(0, 0, Display.getWidth(), Display.getHeight());
 		Display.update();
 	}
 

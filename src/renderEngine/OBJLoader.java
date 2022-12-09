@@ -10,6 +10,7 @@ import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
 import models.RawModel;
+import models.RawModels;
 
 public class OBJLoader {
 
@@ -85,8 +86,7 @@ public class OBJLoader {
 			return loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
 		} catch(Exception e) {
 			//error cube
-			return null;
+			return RawModels.getCube(new Vector3f(0,0,0), new Vector3f(0,0,0)).getModel().getRawModel();
 		}
 	}
-
 }
