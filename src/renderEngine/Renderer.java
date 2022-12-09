@@ -42,7 +42,7 @@ public class Renderer {
 		GL20.glEnableVertexAttribArray(1);
 		GL20.glEnableVertexAttribArray(2);
 		
-		Matrix4f transformationMatrix = Maths.createTransformationMatrix(entity.getPosition(), entity.getRotX(), entity.getRotY(), entity.getRotZ(), entity.getScale());
+		Matrix4f transformationMatrix = Maths.createTransformationMatrix(entity.getPosition(), entity.getRotation().getX(), entity.getRotation().getY(), entity.getRotation().getZ(), entity.getScale());
 		shader.loadTransformationMatrix(transformationMatrix);
 		
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);

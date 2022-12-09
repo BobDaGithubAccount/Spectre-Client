@@ -36,9 +36,6 @@ public class DisplayManager {
 		Display.update();
 	}
 
-	/**
-	 * This closes the window when the game is closed.
-	 */
 	public static void closeDisplay() {
 		Display.destroy();
 	}

@@ -14,7 +14,7 @@ import models.RawModels;
 
 public class OBJLoader {
 
-	public static RawModel loadObjModel(String fileName, Loader loader) {
+	public static RawModel loadObjModel(String fileName) {
 		try {
 			File file = new File(OBJLoader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());
 			System.out.println(file);
@@ -83,10 +83,11 @@ public class OBJLoader {
 				normalsArray[normI++] = norm.y;
 				normalsArray[normI++] = norm.z;
 			}
-			return loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
+			return Loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
 		} catch(Exception e) {
+			e.printStackTrace();
 			//error cube
-			return RawModels.getCube(new Vector3f(0,0,0), new Vector3f(0,0,0)).getModel().getRawModel();
+			return RawModels.getErrorCube(new Vector3f(0,0,0), new Vector3f(0,0,0)).getModel().getRawModel();
 		}
 	}
 }

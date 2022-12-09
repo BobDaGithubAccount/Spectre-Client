@@ -4,6 +4,7 @@ import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
 import entities.Camera;
+import main.MainGameLoop;
 
 public class Maths {
 
@@ -18,7 +19,8 @@ public class Maths {
 		return matrix;
 	}
 	
-	public static Matrix4f createViewMatrix(Camera camera) {
+	public static Matrix4f createViewMatrix() {
+		Camera camera = MainGameLoop.camera;
 		Matrix4f matrix = new Matrix4f();
 		matrix.setIdentity();
 		Matrix4f.rotate((float) Math.toRadians(camera.getPitch()), new Vector3f(1,0,0), matrix, matrix);
