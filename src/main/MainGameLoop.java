@@ -12,7 +12,6 @@ import entities.Light;
 import gamelogic.InputThread;
 import gamelogic.Scheduler;
 import objects.Dragon;
-import objects.Skybox;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.Renderer;
@@ -35,23 +34,21 @@ public class MainGameLoop {
 		initControls();
 
 		Dragon dragon = new Dragon();
-		Skybox skybox = new Skybox();
+//		Skybox skybox = new Skybox();
 		
 		Light light1 = new Light(new Vector3f(0f,20f,10f), new Vector3f(1f,1f,1f));
 		
 		calendar.setTime(new Date());
 		
 		while (!Display.isCloseRequested()) {
-//			entity1.increasePosition(0f, 0f, 0f);
-//			entity1.increaseRoation(0f, 0.1f, 0f);
-//			light1.setPosition(new Vector3f(light1.getPosition().x,light1.getPosition().y+0.1f,light1.getPosition().z));
 			pollEvents();
 			renderer.prepare();
 			shader.start();
 			shader.loadLight(light1);
 			renderer.render(dragon.getEntity(), shader);
-			renderer.render(skybox.getEntity(), shader);
-			skybox.run();
+			dragon.run();
+//			renderer.render(skybox.getEntity(), shader);
+//			skybox.run();
 			shader.loadViewMatrix();
 			shader.stop();
 			DisplayManager.updateDisplay();
