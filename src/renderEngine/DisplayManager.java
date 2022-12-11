@@ -39,5 +39,9 @@ public class DisplayManager {
 	public static void closeDisplay() {
 		Display.destroy();
 	}
+	
+	public static void updateTitleWithFPS(int fps) {
+		Display.setTitle(TITLE + " | FPS: " + fps);
+	}
 
 }

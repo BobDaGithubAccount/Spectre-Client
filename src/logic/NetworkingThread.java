@@ -1,4 +1,4 @@
-package gamelogic;
+package logic;
 
 public class NetworkingThread extends Thread {
 	//TODO

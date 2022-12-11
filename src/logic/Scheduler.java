@@ -1,4 +1,4 @@
-package gamelogic;
+package logic;
 
 import java.util.Calendar;
 import java.util.Date;

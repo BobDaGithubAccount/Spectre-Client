@@ -1,62 +1,62 @@
-package gamelogic;
+package logic;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.util.vector.Vector3f;
 
 import entities.Camera;
 import main.MainGameLoop;
+import renderEngine.MasterRenderer;
 
-public class InputThread extends Scheduler {	
+public class InputTask extends Scheduler {	
 
 	
-	public InputThread(long delay) {
+	public InputTask(long delay) {
 		super(delay);
 	}
-
-	long oldTime = 0;
 	
 	@Override
 	public void run() {		
-		Camera camera = MainGameLoop.camera;
+		Camera camera = MasterRenderer.camera;
 		Vector3f position = camera.getPosition();
+		int fps = MainGameLoop.fpstask.fps;
 		
 		if(Keyboard.isKeyDown(17)) { //W
-			position.z -= 0.1f;
+			position.z -= (6f/fps);
 		}
 		
 		if(Keyboard.isKeyDown(30)) { //A
-			position.x -= 0.1f;
+			position.x -= (6f/fps);
 		}
 		
 		if(Keyboard.isKeyDown(31)) { //S
-			position.z += 0.1f;
+			position.z += (6f/fps);
 		}
 			
 		if(Keyboard.isKeyDown(32)) { //D
-			position.x += 0.1f;
+			position.x += (6f/fps);
 		}
 		
 		
 		
 		if(Keyboard.isKeyDown(200)) { //UP
-			camera.setPitch(camera.getPitch() - 0.36f);
+			camera.setPitch(camera.getPitch() - (60f/fps));
 		}
 		
 		if(Keyboard.isKeyDown(203)) { //LEFT
-			camera.setYaw(camera.getYaw() - 0.36f);
+			camera.setYaw(camera.getYaw() - (60f/fps));
 		}
 		
 		if(Keyboard.isKeyDown(208)) { //DOWN
-			camera.setPitch(camera.getPitch() + 0.36f);
+			camera.setPitch(camera.getPitch() + (60f/fps));
 		}
 			
 		if(Keyboard.isKeyDown(205)) { //RIGHT
-			camera.setYaw(camera.getYaw() + 0.36f);
+			camera.setYaw(camera.getYaw() + (60f/fps));
 		}
 		
 		camera.setPosition(position);
 		
-		this.setDelay(this.calendar.getTimeInMillis()+this.delay);
+		this.setEpochTimeToRun(this.getEpochTimeToRun()+this.delay);
 	}
 	
 	@Override

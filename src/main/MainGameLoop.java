@@ -1,65 +1,50 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 import org.lwjgl.opengl.Display;
-import org.lwjgl.util.vector.Vector3f;
 
-import entities.Camera;
-import entities.Light;
-import gamelogic.InputThread;
-import gamelogic.Scheduler;
-import objects.Dragon;
+import logic.F_P_S_TrackingTask;
+import logic.InputTask;
+import logic.Scheduler;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
+import renderEngine.MasterRenderer;
 import renderEngine.Renderer;
-import shaders.StaticShader;
 
 public class MainGameLoop {
-		
+	
+	public static int fps = 0;
+	
 	private static ArrayList<Scheduler> tasksToRun = new ArrayList<Scheduler>();
 	
-	private static Calendar calendar = Calendar.getInstance();
-	
-	public static Camera camera = new Camera(new Vector3f(0f,0f,0f),0f,0f,0f);
+	private static InputTask it = new InputTask(10);
+	public static F_P_S_TrackingTask fpstask = new F_P_S_TrackingTask(1000);
 	
 	public static void main(String[] args) {
 		
 		DisplayManager.createDisplay();
-		StaticShader shader = new StaticShader();
-		Renderer renderer = new Renderer(shader);
 		
 		initControls();
-
-		Dragon dragon = new Dragon();
-//		Skybox skybox = new Skybox();
+		initFps();
 		
-		Light light1 = new Light(new Vector3f(0f,20f,10f), new Vector3f(1f,1f,1f));
-		
-		calendar.setTime(new Date());
+		MasterRenderer.init();
+		Renderer.initRenderer();
 		
 		while (!Display.isCloseRequested()) {
+			fps++;
 			pollEvents();
-			renderer.prepare();
-			shader.start();
-			shader.loadLight(light1);
-			renderer.render(dragon.getEntity(), shader);
-			dragon.run();
-//			renderer.render(skybox.getEntity(), shader);
-//			skybox.run();
-			shader.loadViewMatrix();
-			shader.stop();
-			DisplayManager.updateDisplay();
+			MasterRenderer.render();
 		}
-		shader.cleanUp();
+
+		MasterRenderer.cleanUp();
 		Loader.cleanUp();
 		DisplayManager.closeDisplay();
 	}
-	
+
 	private static void pollEvents() {
-		long currentTime = calendar.getTimeInMillis();
+		long currentTime = new Date().getTime();
 		ArrayList<Scheduler> toRemove = new ArrayList<Scheduler>();
 		for(Scheduler s : tasksToRun) {
 			if(s.getEpochTimeToRun() < currentTime) {
@@ -73,7 +58,11 @@ public class MainGameLoop {
 	}
 	
 	private static void initControls() {
-		pushTaskToStack(new InputThread(10));
+		pushTaskToStack(it);
+	}
+	
+	private static void initFps() {
+		pushTaskToStack(fpstask);
 	}
 	
 	public static void pushTaskToStack(Scheduler s) {
