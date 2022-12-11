@@ -8,6 +8,7 @@ import org.lwjgl.opengl.Display;
 import logic.F_P_S_TrackingTask;
 import logic.InputTask;
 import logic.Scheduler;
+import logic.TPS_Task;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
@@ -19,8 +20,9 @@ public class MainGameLoop {
 	
 	private static ArrayList<Scheduler> tasksToRun = new ArrayList<Scheduler>();
 	
-	private static InputTask it = new InputTask(10);
+	public static InputTask it = new InputTask(10);
 	public static F_P_S_TrackingTask fpstask = new F_P_S_TrackingTask(1000);
+	public static TPS_Task gameClock = new TPS_Task(50); //20 tps
 	
 	public static void main(String[] args) {
 		
@@ -28,6 +30,7 @@ public class MainGameLoop {
 		
 		initControls();
 		initFps();
+		initTPS();
 		
 		MasterRenderer.init();
 		Renderer.initRenderer();
@@ -63,6 +66,10 @@ public class MainGameLoop {
 	
 	private static void initFps() {
 		pushTaskToStack(fpstask);
+	}
+	
+	private static void initTPS() {
+		pushTaskToStack(gameClock);
 	}
 	
 	public static void pushTaskToStack(Scheduler s) {

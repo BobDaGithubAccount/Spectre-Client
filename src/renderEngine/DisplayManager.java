@@ -40,8 +40,8 @@ public class DisplayManager {
 		Display.destroy();
 	}
 	
-	public static void updateTitleWithFPS(int fps) {
-		Display.setTitle(TITLE + " | FPS: " + fps);
+	public static void updateTitleWithFPS(int fps, int tps) {
+		Display.setTitle(TITLE + " | FPS: " + fps + " | TPS: " + tps);
 	}
 
 }
