@@ -1,6 +1,7 @@
 package shaders;
 
 import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Vector3f;
 
 import entities.Light;
 import toolbox.Maths;
@@ -17,6 +18,7 @@ public class StaticShader extends ShaderProgram {
 	private int location_lightColour;
 	private int location_shineDamper;
 	private int location_reflectivity;
+	private int location_skyColour;
 	
 
 	public StaticShader() {
@@ -39,6 +41,11 @@ public class StaticShader extends ShaderProgram {
 		location_lightColour = super.getUniformLocation("lightColour");
 		location_shineDamper = super.getUniformLocation("shineDamper");
 		location_reflectivity = super.getUniformLocation("reflectivity");
+		location_skyColour = super.getUniformLocation("skyColour");
+	}
+	
+	public void loadSkyColour(float r, float g, float b) {
+		super.loadVector(location_skyColour, new Vector3f(r,g,b));
 	}
 	
 	public void loadShineVariables(float damper, float reflectivity) {

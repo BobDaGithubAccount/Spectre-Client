@@ -30,13 +30,17 @@ public class Renderer {
 		MasterRenderer.shader.stop();
 	}
 	
+	public static final float RED = 0f;
+	public static final float GREEN = 0.5f;
+	public static final float BLUE = 0.7f;
+	
 	private static Matrix4f projectionMatrix;
 	
 	public static void prepare() {
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glCullFace(GL11.GL_BACK);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		GL11.glClearColor(1, 0, 0, 1);
+		GL11.glClearColor(RED, GREEN, BLUE, 1);
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT|GL11.GL_DEPTH_BUFFER_BIT);
 	}
 	

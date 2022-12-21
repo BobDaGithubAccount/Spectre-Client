@@ -39,6 +39,7 @@ public class MasterRenderer {
 		processEntity(entity);
 		Renderer.prepare();
 		shader.start();
+		shader.loadSkyColour(Renderer.RED, Renderer.GREEN, Renderer.BLUE);
 		shader.loadLight(sun);
 		shader.loadViewMatrix();
 		Renderer.render(entities);
