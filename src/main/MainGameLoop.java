@@ -16,7 +16,7 @@ import renderEngine.Renderer;
 
 public class MainGameLoop {
 	
-	public static int fps = 0;
+	public static int fps = 60;
 	
 	private static ArrayList<Scheduler> tasksToRun = new ArrayList<Scheduler>();
 	
