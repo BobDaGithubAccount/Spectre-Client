@@ -1,7 +1,7 @@
 package renderEngine;
 
 import org.lwjgl.LWJGLException;
-import org.lwjgl.input.Mouse;
+//import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.ContextAttribs;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -24,7 +24,7 @@ public class DisplayManager {
 			Display.create(new PixelFormat(), attribs);
 			Display.setTitle(TITLE);
 			Display.setResizable(true);
-			Mouse.setGrabbed(true);
+//			Mouse.setGrabbed(true);
 //			ResourceLoader.setIcon();
 		} catch (LWJGLException e) {
 			e.printStackTrace();

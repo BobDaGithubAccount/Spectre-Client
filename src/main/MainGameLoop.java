@@ -28,9 +28,7 @@ public class MainGameLoop {
 		
 		DisplayManager.createDisplay();
 		
-		initControls();
-		initFps();
-		initTPS();
+		init();
 		
 		MasterRenderer.init();
 		Renderer.initRenderer();
@@ -60,15 +58,9 @@ public class MainGameLoop {
 		tasksToRun.removeAll(toRemove);
 	}
 	
-	private static void initControls() {
+	private static void init() {
 		pushTaskToStack(it);
-	}
-	
-	private static void initFps() {
 		pushTaskToStack(fpstask);
-	}
-	
-	private static void initTPS() {
 		pushTaskToStack(gameClock);
 	}
 	
