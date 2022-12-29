@@ -15,7 +15,7 @@ public class DisplayManager {
 	private static final int WIDTH = 1280;
 	private static final int HEIGHT = 720;
 	private static final int FPS_CAP = 60;
-	private static final String TITLE = "Spectre";
+	private static final String TITLE = "Spectre-Client";
 
 	public static void createDisplay() {
 		ContextAttribs attribs = new ContextAttribs(3, 2).withForwardCompatible(true).withProfileCore(true);
