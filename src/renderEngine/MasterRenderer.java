@@ -24,7 +24,7 @@ public class MasterRenderer {
 	
 	private static Map<TexturedModel, List<Entity>> entities = new HashMap<TexturedModel, List<Entity>>();
 	
-	private static Entity entity = Loader.loadObj("dragon1", new Vector3f(0f,-5f,-25f), new Vector3f(0f,0f,0f), 1);
+	private static Entity entity = Loader.loadObj("dragon1", new Vector3f(0f,-5f,-250f), new Vector3f(0f,0f,0f), 1);
 		
 	public static void init() {
 		TexturedModel model = entity.getModel();
