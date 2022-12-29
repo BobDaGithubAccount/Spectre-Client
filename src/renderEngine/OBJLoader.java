@@ -9,6 +9,7 @@ import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
+import logging.Logger;
 import models.RawModel;
 import models.RawModels;
 
@@ -17,7 +18,7 @@ public class OBJLoader {
 	public static RawModel loadObjModel(String fileName) {
 		try {
 			File file = new File(OBJLoader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());
-			System.out.println(file);
+			Logger.log(file.getPath());
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line;
 			List<Vector3f> rawvertices = new ArrayList<Vector3f>();

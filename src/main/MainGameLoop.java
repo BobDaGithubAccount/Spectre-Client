@@ -9,6 +9,7 @@ import logic.F_P_S_TrackingTask;
 import logic.InputTask;
 import logic.Scheduler;
 import logic.TPS_Task;
+import networking.NetworkingThread;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
@@ -24,24 +25,30 @@ public class MainGameLoop {
 	public static F_P_S_TrackingTask fpstask = new F_P_S_TrackingTask(1000);
 	public static TPS_Task gameClock = new TPS_Task(50); //20 tps
 	
+	public static NetworkingThread nt = new NetworkingThread();
+	
 	public static void main(String[] args) {
 		
-		DisplayManager.createDisplay();
+//		DisplayManager.createDisplay();
+//		
+//		init();
+//		
+//		MasterRenderer.init();
+//		Renderer.initRenderer();
+//		
+		nt.start();
 		
-		init();
-		
-		MasterRenderer.init();
-		Renderer.initRenderer();
-		
-		while (!Display.isCloseRequested()) {
-			fps++;
-			pollEvents();
-			MasterRenderer.render();
-		}
-
-		MasterRenderer.cleanUp();
-		Loader.cleanUp();
-		DisplayManager.closeDisplay();
+//		
+//		while (!Display.isCloseRequested()) {
+//			fps++;
+//			pollEvents();
+//			MasterRenderer.render();
+//		}
+//
+//		MasterRenderer.cleanUp();
+//		Loader.cleanUp();
+//		DisplayManager.closeDisplay();
+//		System.exit(0);
 	}
 
 	private static void pollEvents() {

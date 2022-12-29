@@ -17,6 +17,7 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
 import entities.Entity;
+import logging.Logger;
 import models.RawModel;
 import models.TexturedModel;
 import textures.ModelTexture;
@@ -61,7 +62,7 @@ public class Loader {
 		Texture texture = null;
 		try {
 			File file = new File(Loader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".png").getFile());
-			System.out.println(file);
+			Logger.log(file.getPath());
 			texture = TextureLoader.getTexture("PNG", new FileInputStream(file.getPath()));
 		} catch (Exception e) {
 			e.printStackTrace();
