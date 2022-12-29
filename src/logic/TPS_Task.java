@@ -18,7 +18,6 @@ public class TPS_Task extends Scheduler {
 	public void run() {
 		tpsCounter++;
 		
-		//TODO
 		this.setEpochTimeToRun(this.getEpochTimeToRun()+this.delay);
 	}
 

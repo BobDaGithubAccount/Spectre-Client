@@ -29,26 +29,25 @@ public class MainGameLoop {
 	
 	public static void main(String[] args) {
 		
-//		DisplayManager.createDisplay();
-//		
-//		init();
-//		
-//		MasterRenderer.init();
-//		Renderer.initRenderer();
-//		
-		nt.start();
+		DisplayManager.createDisplay();
 		
-//		
-//		while (!Display.isCloseRequested()) {
-//			fps++;
-//			pollEvents();
-//			MasterRenderer.render();
-//		}
-//
-//		MasterRenderer.cleanUp();
-//		Loader.cleanUp();
-//		DisplayManager.closeDisplay();
-//		System.exit(0);
+		init();
+		
+		MasterRenderer.init();
+		Renderer.initRenderer();
+		
+		nt.start();
+			
+		while (!Display.isCloseRequested()) {
+			fps++;
+			pollEvents();
+			MasterRenderer.render();
+		}
+
+		MasterRenderer.cleanUp();
+		Loader.cleanUp();
+		DisplayManager.closeDisplay();
+		System.exit(0);
 	}
 
 	private static void pollEvents() {
