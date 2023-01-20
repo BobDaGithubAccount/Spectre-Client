@@ -11,6 +11,7 @@ import java.util.TimerTask;
 
 import org.lwjgl.util.vector.Vector3f;
 
+import event.EventHandler;
 import lib.json.JSONObject;
 import logging.Logger;
 import renderEngine.MasterRenderer;
@@ -67,10 +68,10 @@ public class NetworkingThread extends Thread {
 			while(socket.isConnected() && socket.isBound() && !socket.isClosed()) {
 				JSONObject json = receiveJSON();
 				if(json==null) {continue;}
-				System.out.println(json.toString(1));
-				if(json.get(Packet.packet_type).equals(Packet.SPingPacket)) {
+				if(json.getString(Packet.packet_type).equals(Packet.SPingPacket)) {
 					lastPingReceived = new Date().getTime();
 				}
+				EventHandler.pollPacket(json);
 			}
 			sendJSON(Packet.CDisconnectPacket());
 			is.close();

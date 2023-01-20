@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.lwjgl.opengl.Display;
 
+import event.EventHandler;
 import logic.F_P_S_TrackingTask;
 import logic.InputTask;
 import logic.Scheduler;
@@ -28,6 +29,8 @@ public class MainGameLoop {
 	public static NetworkingThread nt = new NetworkingThread();
 	
 	public static void main(String[] args) {
+		
+		EventHandler.init();
 		
 		DisplayManager.createDisplay();
 		
