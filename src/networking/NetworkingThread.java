@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.UUID;
 
 import org.lwjgl.util.vector.Vector3f;
 
@@ -61,7 +62,7 @@ public class NetworkingThread extends Thread {
 			Logger.log("Connection created!");
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
-			sendJSON(Packet.CConnectPacket());
+			sendJSON(Packet.CConnectPacket(UUID.randomUUID().toString()));
 			timer.schedule(new MoveTask(), 50);
 			timer.schedule(new TickTask(), 1000);
 			timer.schedule(new TimeoutTask(), 1000);
