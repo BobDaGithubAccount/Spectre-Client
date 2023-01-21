@@ -17,7 +17,7 @@ public class PlayerMoveEvent implements IEvent {
 	@Override
 	public boolean run(JSONObject json) {
 		MasterRenderer.entity.setPosition(new Vector3f(json.getFloat("x"), json.getFloat("y"), json.getFloat("z")));
-		MasterRenderer.entity.setRotation(new Vector3f(json.getFloat("pitch"), json.getFloat("yaw"), json.getFloat("roll")));
+		MasterRenderer.entity.setRotation(new Vector3f(0, json.getFloat("yaw"), 0));
 		return false;
 	}
 

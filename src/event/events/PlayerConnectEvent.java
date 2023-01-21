@@ -1,7 +1,5 @@
 package event.events;
 
-import java.util.UUID;
-
 import org.lwjgl.util.vector.Vector3f;
 
 import entities.Entity;
@@ -22,6 +20,7 @@ public class PlayerConnectEvent implements IEvent {
 
 	@Override
 	public boolean run(JSONObject json) {
+		System.out.println(json.toString(1));
 		Entity entity = Loader.loadObj("essential", new Vector3f(0f,0f,0f), new Vector3f(0f,0f,0f), 1);
 		TexturedModel model = entity.getModel();
 		ModelTexture t = model.getTexture();
@@ -29,7 +28,7 @@ public class PlayerConnectEvent implements IEvent {
 		t.setReflectivity(0.5f);
 		model.setTexture(t);
 		entity.setModel(model);
-		MasterRenderer.processEntity(entity, UUID.fromString(json.getString("uuid")));
+		MasterRenderer.processEntity(entity);
 		return false;
 	}
 	
