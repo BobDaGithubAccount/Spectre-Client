@@ -69,6 +69,15 @@ public class Packet {
 		return packet;
 	}
 
+	public static String SInitPacket = "S-INIT";
+	public static JSONObject SInitPacket() {
+		JSONObject packet = new JSONObject();
+		packet.put(packet_type, SInitPacket);
+		packet.put(protocol_version, protocolVersion);
+		packet.put("players", "Spectre.players");
+		return packet;
+	}
+
 	//
 	//	CLIENT
 	//

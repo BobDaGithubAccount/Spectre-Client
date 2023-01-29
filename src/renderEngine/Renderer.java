@@ -50,7 +50,7 @@ public class Renderer {
 			List<Entity> list = e.getValue();
 			for(Entity entity: list) {
 				prepareInstance(entity);
-				RawModel model = entity.getModel().getRawModel();
+				RawModel model = e.getKey().getRawModel();
 				GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, model.getVertexCount());
 				GL11.glDrawElements(GL11.GL_TRIANGLES, model.getVertexCount(), GL11.GL_UNSIGNED_INT, 0);
 			}

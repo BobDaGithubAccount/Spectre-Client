@@ -11,7 +11,6 @@ import org.lwjgl.util.vector.Vector3f;
 
 import logging.Logger;
 import models.RawModel;
-import models.RawModels;
 
 public class OBJLoader {
 
@@ -87,8 +86,9 @@ public class OBJLoader {
 			return Loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
 		} catch(Exception e) {
 			e.printStackTrace();
+			return null;
 			//error cube
-			return RawModels.getErrorCube(new Vector3f(0,0,0), new Vector3f(0,0,0)).getModel().getRawModel();
+			// TODO return RawModels.getErrorCube(new Vector3f(0,0,0), new Vector3f(0,0,0)).getModel().getRawModel();
 		}
 	}
 }

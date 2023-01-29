@@ -1,11 +1,5 @@
 package models;
 
-import org.lwjgl.util.vector.Vector3f;
-
-import entities.Entity;
-import renderEngine.Loader;
-import textures.ModelTexture;
-
 public class RawModels {
 
 	public static float[] vertices = {			
@@ -121,21 +115,12 @@ public class RawModels {
 	};
 
 	
-	public static Entity getErrorCube(Vector3f location, Vector3f rotation) {
-		RawModel model = Loader.loadToVAO(vertices, indices, textureCoords, normals);
-		ModelTexture texture = new ModelTexture(Loader.loadTexture("essential"));
-		TexturedModel texturedModel = new TexturedModel(model, texture);
-		Entity entity = new Entity(texturedModel, location, rotation, 1f);
-		return entity;
-	}
-	
-	public static Entity getSkyboxCube(Vector3f location, Vector3f rotation) {
-		RawModel model = Loader.loadToVAO(vertices, indices, textureCoords, normals);
-		ModelTexture texture = new ModelTexture(Loader.loadTexture("skybox"));
-		TexturedModel texturedModel = new TexturedModel(model, texture);
-		Entity entity = new Entity(texturedModel, location, rotation, 1024f);
-		return entity;
-
-	}
+//	public static Entity getErrorCube(Vector3f location, Vector3f rotation) {
+//		RawModel model = Loader.loadToVAO(vertices, indices, textureCoords, normals);
+//		ModelTexture texture = new ModelTexture(Loader.loadTexture("essential"));
+//		TexturedModel texturedModel = new TexturedModel(model, texture);
+//		Entity entity = new Entity(texturedModel, location, rotation, 1f);
+//		return entity;
+//	}
 	
 }

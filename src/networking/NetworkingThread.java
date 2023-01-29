@@ -55,6 +55,7 @@ public class NetworkingThread extends Thread {
 		}
 	}
 	
+	//TODO make networking more efficient
 	@Override
 	public void run() {
 	    try {

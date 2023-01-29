@@ -5,11 +5,9 @@ import org.lwjgl.util.vector.Vector3f;
 import entities.Entity;
 import event.IEvent;
 import lib.json.JSONObject;
-import models.TexturedModel;
+import main.Spectre;
 import networking.Packet;
-import renderEngine.Loader;
 import renderEngine.MasterRenderer;
-import textures.ModelTexture;
 
 public class PlayerConnectEvent implements IEvent {
 
@@ -20,15 +18,9 @@ public class PlayerConnectEvent implements IEvent {
 
 	@Override
 	public boolean run(JSONObject json) {
-		System.out.println(json.toString(1));
-		Entity entity = Loader.loadObj("essential", new Vector3f(0f,0f,0f), new Vector3f(0f,0f,0f), 1);
-		TexturedModel model = entity.getModel();
-		ModelTexture t = model.getTexture();
-		t.setShineDamper(1f);
-		t.setReflectivity(0.5f);
-		model.setTexture(t);
-		entity.setModel(model);
-		MasterRenderer.processEntity(entity);
+		System.out.println(json.toString());
+		Entity player = new Entity(json.getString("uuid"), Spectre.dragon, new Vector3f(0f,0f,0f), new Vector3f(0f,0f,0f), 1);
+		MasterRenderer.pushInstance(player.getParent(), player);
 		return false;
 	}
 	

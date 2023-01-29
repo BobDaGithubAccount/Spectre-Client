@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.lwjgl.BufferUtils;
@@ -28,7 +29,10 @@ public class Loader {
 		RawModel model = OBJLoader.loadObjModel(fileName);
 		ModelTexture texture = new ModelTexture(loadTexture(fileName));
 		TexturedModel texturedModel = new TexturedModel(model, texture);
-		Entity entity = new Entity(texturedModel, location, rotation, 1f);
+		Entity entity = new Entity(fileName, fileName, location, rotation, 1f);
+		HashMap<String, Entity> instances = new HashMap<String, Entity>();
+		instances.put(entity.getName(), entity);
+		MasterRenderer.setObject(fileName, new RenderObject(instances, texturedModel));
 		return entity;
 	}
 	

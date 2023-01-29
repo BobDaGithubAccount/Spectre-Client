@@ -2,22 +2,38 @@ package entities;
 
 import org.lwjgl.util.vector.Vector3f;
 
-import models.TexturedModel;
-
 public class Entity {
 
-	private TexturedModel model;
+	private String parent;
+	private String name;
 	private Vector3f position;
 	private Vector3f rotation;
 	private float scale;
 	
-	public Entity(TexturedModel model, Vector3f position, Vector3f rotation, float scale) {
-		this.model = model;
+	public Entity(String name, String parent, Vector3f position, Vector3f rotation, float scale) {
+		this.name = name;
+		this.parent = parent;
 		this.position = position;
 		this.rotation = rotation;
 		this.scale = scale;
 	}
 
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getParent() {
+		return this.parent;
+	}
+	
+	public void setParent(String parent) {
+		this.parent = parent;
+	}
+	
 	public void increasePosition(float dx, float dy, float dz) {
 		this.position.x+=dx;
 		this.position.y+=dy;
@@ -28,14 +44,6 @@ public class Entity {
 		this.rotation.x+=dx;
 		this.rotation.y+=dy;
 		this.rotation.z+=dz;
-	}
-	
-	public TexturedModel getModel() {
-		return model;
-	}
-
-	public void setModel(TexturedModel model) {
-		this.model = model;
 	}
 
 	public Vector3f getPosition() {

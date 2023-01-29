@@ -1,6 +1,7 @@
 package event;
 
 import event.events.PlayerConnectEvent;
+import event.events.PlayerInitPacketEvent;
 import event.events.PlayerMoveEvent;
 import lib.json.JSONObject;
 import networking.Packet;
@@ -13,7 +14,11 @@ public class EventHandler {
 
     public static void pollPacket(JSONObject json) {
         try {
-            ArrayList<IEvent> eventsToPoll = events.get(json.getString(Packet.packet_type));
+        	String packet_type = json.getString(Packet.packet_type);
+        	if(!events.containsKey(packet_type)) {
+        		return;
+        	}
+            ArrayList<IEvent> eventsToPoll = events.get(packet_type);
             if (eventsToPoll == null) {
                 return;
             }
@@ -44,6 +49,7 @@ public class EventHandler {
 
     public static void init() {
     	addEventListener(Packet.SConnectPacket, new PlayerConnectEvent());
+    	addEventListener(Packet.SInitPacket, new PlayerInitPacketEvent());
         addEventListener(Packet.SMovePacket, new PlayerMoveEvent());
     }
 
