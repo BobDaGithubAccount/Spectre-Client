@@ -116,10 +116,14 @@ public class MasterRenderer {
 	public static boolean deleteInstance(String parent, String name) {
 		if(objects.containsKey(parent)) {
 			RenderObject ro = objects.get(parent);
+			ArrayList<Entity> toRemove = new ArrayList<Entity>();
 			for(Entity e : ro.instances.values()) {
 				if(e.getName().equals(name)) {
-					ro.instances.remove(e.getName());
+					toRemove.add(e);
 				}
+			}
+			for(Entity e : toRemove) {
+				ro.instances.remove(e.getName());
 			}
 			objects.put(parent, ro);
 			return true;
