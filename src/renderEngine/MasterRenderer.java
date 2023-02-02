@@ -1,6 +1,7 @@
 package renderEngine;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,16 +69,7 @@ public class MasterRenderer {
 	}
 	
 	public static void setObject(String parent, RenderObject object) {
-		if(objects.containsKey(parent) && objects.get(parent).model.equals(object.model)) {
-			RenderObject ro = objects.get(parent);
-			for(Entry<String, Entity> instance : object.instances.entrySet()) {
-				ro.instances.put(instance.getKey(), instance.getValue());
-			}
-			objects.put(parent, ro);
-		}
-		else {
-			objects.put(parent, object);
-		}
+		objects.put(parent, object);
 	}
 	
 	public static void delObject(String parent) {
@@ -86,6 +78,10 @@ public class MasterRenderer {
 	
 	public static Set<String> getKeys() {
 		return objects.keySet();
+	}
+	
+	public static Collection<RenderObject> getValues() {
+		return objects.values();
 	}
 	
 	public static boolean pushInstance(String parent, Entity entity) {
@@ -117,14 +113,26 @@ public class MasterRenderer {
 		return false;
 	}
 	
-	public static Entity getInstance(String parent, String name) {
-		System.out.println(getKeys());
+	public static boolean deleteInstance(String parent, String name) {
 		if(objects.containsKey(parent)) {
 			RenderObject ro = objects.get(parent);
-			System.out.println(name + " | " + ro.instances.toString());
-			for(String s : ro.instances.keySet()) {
-				if(s.equals(name)) {
-					return ro.instances.get(s);
+			for(Entity e : ro.instances.values()) {
+				if(e.getName().equals(name)) {
+					ro.instances.remove(e.getName());
+				}
+			}
+			objects.put(parent, ro);
+			return true;
+		}
+		return false;
+	}
+	
+	public static Entity getInstance(String parent, String name) {
+		if(objects.containsKey(parent)) {
+			RenderObject ro = objects.get(parent);
+			for(Entity e : ro.instances.values()) {
+				if(e.getName().equals(name)) {
+					return ro.instances.get(e.getName());
 				}
 			}
 		}

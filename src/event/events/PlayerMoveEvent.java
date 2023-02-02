@@ -18,7 +18,6 @@ public class PlayerMoveEvent implements IEvent {
 
 	@Override
 	public boolean run(JSONObject json) {
-		System.out.println(json.toString());
 		Entity e = MasterRenderer.getInstance(Spectre.dragon, json.getString("uuid"));
 		e.setPosition(new Vector3f(json.getFloat("x"), json.getFloat("y"), json.getFloat("z")));
 		e.setRotation(new Vector3f(0, json.getFloat("yaw"), 0));

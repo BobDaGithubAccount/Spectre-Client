@@ -1,7 +1,7 @@
 package event;
 
 import event.events.PlayerConnectEvent;
-import event.events.PlayerInitPacketEvent;
+import event.events.PlayerDisconnectEvent;
 import event.events.PlayerMoveEvent;
 import lib.json.JSONObject;
 import networking.Packet;
@@ -49,7 +49,7 @@ public class EventHandler {
 
     public static void init() {
     	addEventListener(Packet.SConnectPacket, new PlayerConnectEvent());
-    	addEventListener(Packet.SInitPacket, new PlayerInitPacketEvent());
+    	addEventListener(Packet.SDisconnectPacket, new PlayerDisconnectEvent());
         addEventListener(Packet.SMovePacket, new PlayerMoveEvent());
     }
 

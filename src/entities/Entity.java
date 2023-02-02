@@ -70,4 +70,9 @@ public class Entity {
 		this.scale = scale;
 	}
 	
+	@Override
+	public String toString() {
+		return this.parent + " " + this.name + " " + this.position.x + " " + this.position.y + " " + this.position.z + " " + this.rotation.x + " " + this.rotation.y + " " + this.rotation.z + " " + this.scale;
+	}
+	
 }

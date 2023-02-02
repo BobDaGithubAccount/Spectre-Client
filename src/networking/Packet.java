@@ -25,14 +25,6 @@ public class Packet {
 	}
 
 	public static String SStatusPacket = "S-STATUS";
-	public static JSONObject SStatusPacket() {
-		JSONObject packet = new JSONObject();
-		packet.put(packet_type, SStatusPacket);
-		packet.put(protocol_version, "Settings.protocolVersion");
-		packet.put("server_name", "Settings.serverName");
-		packet.put("server_description", "Settings.serverDescription");
-		return packet;
-	}
 
 	public static String SConnectPacket = "S-CONNECT";
 	public static JSONObject SConnectPacket(String name, UUID uuid) {
@@ -66,15 +58,6 @@ public class Packet {
 		packet.put("roll", roll);
 		packet.put("name", name);
 		packet.put("uuid", uuid.toString());
-		return packet;
-	}
-
-	public static String SInitPacket = "S-INIT";
-	public static JSONObject SInitPacket() {
-		JSONObject packet = new JSONObject();
-		packet.put(packet_type, SInitPacket);
-		packet.put(protocol_version, protocolVersion);
-		packet.put("players", "Spectre.players");
 		return packet;
 	}
 
