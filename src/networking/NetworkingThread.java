@@ -70,6 +70,7 @@ public class NetworkingThread extends Thread {
 			while(socket.isConnected() && socket.isBound() && !socket.isClosed()) {
 				JSONObject json = receiveJSON();
 				if(json==null) {continue;}
+				System.out.println(json.toString(1));
 				if(json.getString(Packet.packet_type).equals(Packet.SPingPacket)) {
 					lastPingReceived = new Date().getTime();
 				}
