@@ -1,0 +1,8 @@
+----------
+Attempting to load source map d1_trainstation_02
+Attempting to load source map d1_trainstation_02 with file C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\levels\d1_trainstation_02.bsp
+VBSP header parse check passed
+VBSP version header parse check passed
+Loading lump data!
+Loaded lump data!
+----------
