@@ -1,16 +1,22 @@
 package renderEngine.sourceEngineCompatibility;
 
+import java.nio.ByteBuffer;
+
 public class Lump {
 	private int lumpOffsetInFileInBytes;//
 	private int lumpLengthInBytes;
 	private int lumpFormatVersion;
-	private char[] id; //LENGTH=4
-	public Lump(int lumpOffsetInFileInBytes, int lumpLengthInBytes, int lumpFormatVersion, char[] id) {
+	private int fourCC; //LENGTH=4
+	private ByteBuffer bb = ByteBuffer.allocate(0);
+	private LumpType type;
+	public Lump(int lumpOffsetInFileInBytes, int lumpLengthInBytes, int lumpFormatVersion, int fourCC, ByteBuffer bb, LumpType type) {
 		super();
 		this.lumpOffsetInFileInBytes = lumpOffsetInFileInBytes;
 		this.lumpLengthInBytes = lumpLengthInBytes;
 		this.lumpFormatVersion = lumpFormatVersion;
-		this.id = id;
+		this.fourCC = fourCC;
+		this.bb = bb;
+		this.type = type;
 	}
 	public int getLumpOffsetInFileInBytes() {
 		return lumpOffsetInFileInBytes;
@@ -30,15 +36,27 @@ public class Lump {
 	public void setLumpFormatVersion(int lumpFormatVersion) {
 		this.lumpFormatVersion = lumpFormatVersion;
 	}
-	public char[] getId() {
-		return id;
+	public int getFourCC() {
+		return fourCC;
 	}
-	public void setId(char[] id) {
-		this.id = id;
+	public void setFourCC(int fourCC) {
+		this.fourCC = fourCC;
+	}
+	public ByteBuffer getBb() {
+		return bb;
+	}
+	public void setBb(ByteBuffer bb) {
+		this.bb = bb;
+	}
+	public LumpType getType() {
+		return type;
+	}
+	public void setType(LumpType type) {
+		this.type = type;
 	}
 	@Override
 	public String toString() {
-		return "{lumpOffset:"+this.lumpOffsetInFileInBytes+",lumpLength:"+this.lumpLengthInBytes+",lumpFormat:"+this.lumpFormatVersion+",lumpIdentifier:"+String.valueOf(this.id)+"}";
+		return "{lumpOffset:"+this.lumpOffsetInFileInBytes+",lumpLength:"+this.lumpLengthInBytes+",lumpFormat:"+this.lumpFormatVersion+",lumpIdentifier:"+this.fourCC+"}";
 	}
 }
 //Lump structure
