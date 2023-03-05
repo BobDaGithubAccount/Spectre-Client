@@ -54,9 +54,12 @@ public class Lump {
 	public void setType(LumpType type) {
 		this.type = type;
 	}
+	
 	@Override
 	public String toString() {
-		return "{lumpOffset:"+this.lumpOffsetInFileInBytes+",lumpLength:"+this.lumpLengthInBytes+",lumpFormat:"+this.lumpFormatVersion+",lumpIdentifier:"+this.fourCC+"}";
+		return "Lump [lumpOffsetInFileInBytes=" + lumpOffsetInFileInBytes + ", lumpLengthInBytes=" + lumpLengthInBytes
+				+ ", lumpFormatVersion=" + lumpFormatVersion + ", fourCC=" + fourCC + ", bb=" + bb + ", type=" + type
+				+ "]";
 	}
 }
 //Lump structure
