@@ -22,6 +22,7 @@ public class ValveMapFormatLoader {
 		} catch(Exception e) {
 			Logger.log("There was a fatal error with loading the map " + fileName);
 			Logger.log(e.getMessage());
+			e.printStackTrace();
 			System.exit(-1);
 		}
 	}

@@ -3,11 +3,11 @@ package renderEngine.sourceEngineCompatibility;
 import java.nio.ByteBuffer;
 
 public class Lump {
-	private int lumpOffsetInFileInBytes;//
+	private int lumpOffsetInFileInBytes;
 	private int lumpLengthInBytes;
 	private int lumpFormatVersion;
-	private int fourCC; //LENGTH=4
-	private ByteBuffer bb = ByteBuffer.allocate(0);
+	private int fourCC;
+	private ByteBuffer bb;
 	private LumpType type;
 	public Lump(int lumpOffsetInFileInBytes, int lumpLengthInBytes, int lumpFormatVersion, int fourCC, ByteBuffer bb, LumpType type) {
 		super();
@@ -43,7 +43,7 @@ public class Lump {
 		this.fourCC = fourCC;
 	}
 	public ByteBuffer getBb() {
-		return bb;
+		return this.bb;
 	}
 	public void setBb(ByteBuffer bb) {
 		this.bb = bb;

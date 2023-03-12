@@ -11,6 +11,7 @@ import org.lwjgl.util.vector.Vector3f;
 
 import logging.Logger;
 import models.RawModel;
+import renderEngine.sourceEngineCompatibility.lumpParsers.VertexParser;
 
 public class OBJLoader {
 
@@ -83,6 +84,9 @@ public class OBJLoader {
 				normalsArray[normI++] = norm.y;
 				normalsArray[normI++] = norm.z;
 			}
+			//
+			//
+			//
 			return Loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
 		} catch(Exception e) {
 			e.printStackTrace();

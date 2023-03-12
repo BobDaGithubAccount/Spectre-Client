@@ -35,51 +35,51 @@ public class MainGameLoop {
 	public static void main(String[] args) throws Exception {
 		Logger.init();
 		ValveMapFormatLoader.loadSourceMap("d1_trainstation_02");
-//		EventHandler.init();jar tvf myapp.jar
-//		
-//		DisplayManager.createDisplay();
-//		
-//		init();
-//		
-//		MasterRenderer.init();
-//		Renderer.initRenderer();
-//		
-//		nt.start();
-//			
-//		while (!Display.isCloseRequested()) {
-//			fps++;
-//			pollEvents();
-//			MasterRenderer.render();
-//		}
-//
-//		MasterRenderer.cleanUp();
-//		Loader.cleanUp();
-//		DisplayManager.closeDisplay();
+		EventHandler.init();
+		
+		DisplayManager.createDisplay();
+		
+		init();
+		
+		MasterRenderer.init();
+		Renderer.initRenderer();
+		
+		nt.start();
+			
+		while (!Display.isCloseRequested()) {
+			fps++;
+			pollEvents();
+			MasterRenderer.render();
+		}
+
+		MasterRenderer.cleanUp();
+		Loader.cleanUp();
+		DisplayManager.closeDisplay();
 		Logger.shutdown();
 		System.exit(0);
 	}
 
-//	private static void pollEvents() {
-//		long currentTime = new Date().getTime();
-//		ArrayList<Scheduler> toRemove = new ArrayList<Scheduler>();
-//		for(Scheduler s : tasksToRun) {
-//			if(s.getEpochTimeToRun() < currentTime) {
-//				s.run();
-//				if(!s.shouldRepeat()) {
-//					toRemove.add(s);
-//				}
-//			}
-//		}
-//		tasksToRun.removeAll(toRemove);
-//	}
-//	
-//	private static void init() {
-//		pushTaskToStack(it);
-//		pushTaskToStack(fpstask);
-//		pushTaskToStack(gameClock);
-//	}
-//	
-//	public static void pushTaskToStack(Scheduler s) {
-//		tasksToRun.add(s);
-//	}
+	private static void pollEvents() {
+		long currentTime = new Date().getTime();
+		ArrayList<Scheduler> toRemove = new ArrayList<Scheduler>();
+		for(Scheduler s : tasksToRun) {
+			if(s.getEpochTimeToRun() < currentTime) {
+				s.run();
+				if(!s.shouldRepeat()) {
+					toRemove.add(s);
+				}
+			}
+		}
+		tasksToRun.removeAll(toRemove);
+	}
+	
+	private static void init() {
+		pushTaskToStack(it);
+		pushTaskToStack(fpstask);
+		pushTaskToStack(gameClock);
+	}
+	
+	public static void pushTaskToStack(Scheduler s) {
+		tasksToRun.add(s);
+	}
 }
