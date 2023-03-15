@@ -10,6 +10,8 @@ import info.ata4.io.buffer.ByteBufferUtils;
 import logging.Logger;
 import main.MainGameLoop;
 import renderEngine.sourceEngineCompatibility.lumpParsers.VertexParser;
+import renderEngine.sourceEngineCompatibility.structs.Lump;
+import renderEngine.sourceEngineCompatibility.structs.LumpType;
 
 public class ValveMapFormatLoader {
 	//TODO STORE LEVEL DATA IN SOURCE-ENGINE .bsp FILES

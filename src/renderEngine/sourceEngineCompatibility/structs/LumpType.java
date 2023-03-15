@@ -1,4 +1,4 @@
-package renderEngine.sourceEngineCompatibility;
+package renderEngine.sourceEngineCompatibility.structs;
 /*
 ** 2011 April 5
 **

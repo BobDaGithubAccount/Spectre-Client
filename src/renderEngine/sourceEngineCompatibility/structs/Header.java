@@ -1,4 +1,4 @@
-package renderEngine.sourceEngineCompatibility;
+package renderEngine.sourceEngineCompatibility.structs;
 
 public class Header {
 	private int identifier;

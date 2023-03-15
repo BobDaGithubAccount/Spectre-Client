@@ -40,6 +40,7 @@ public class Logger {
 		System.out.println("[" + formatter.format(date) + "] " + text);
 		try {
 			fw.append(text + System.lineSeparator());
+			fw.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

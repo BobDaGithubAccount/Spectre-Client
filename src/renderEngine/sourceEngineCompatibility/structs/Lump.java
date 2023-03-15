@@ -1,4 +1,4 @@
-package renderEngine.sourceEngineCompatibility;
+package renderEngine.sourceEngineCompatibility.structs;
 
 import java.nio.ByteBuffer;
 
