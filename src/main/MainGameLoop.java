@@ -35,26 +35,26 @@ public class MainGameLoop {
 	public static void main(String[] args) throws Exception {
 		Logger.init();
 		ValveMapFormatLoader.loadSourceMap("d1_trainstation_02");
-		EventHandler.init();
-		
-		DisplayManager.createDisplay();
-		
-		init();
-		
-		MasterRenderer.init();
-		Renderer.initRenderer();
-		
-		nt.start();
-			
-		while (!Display.isCloseRequested()) {
-			fps++;
-			pollEvents();
-			MasterRenderer.render();
-		}
-
-		MasterRenderer.cleanUp();
-		Loader.cleanUp();
-		DisplayManager.closeDisplay();
+//		EventHandler.init();
+//
+//		DisplayManager.createDisplay();
+//
+//		init();
+//
+//		MasterRenderer.init();
+//		Renderer.initRenderer();
+//
+//		nt.start();
+//
+//		while (!Display.isCloseRequested()) {
+//			fps++;
+//			pollEvents();
+//			MasterRenderer.render();
+//		}
+//
+//		MasterRenderer.cleanUp();
+//		Loader.cleanUp();
+//		DisplayManager.closeDisplay();
 		Logger.shutdown();
 		System.exit(0);
 	}

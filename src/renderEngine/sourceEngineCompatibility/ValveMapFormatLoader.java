@@ -9,6 +9,11 @@ import java.util.List;
 import info.ata4.io.buffer.ByteBufferUtils;
 import logging.Logger;
 import main.MainGameLoop;
+import org.lwjgl.util.vector.Vector2f;
+import org.lwjgl.util.vector.Vector3f;
+import renderEngine.Loader;
+import renderEngine.sourceEngineCompatibility.lumpParsers.NormalsParser;
+import renderEngine.sourceEngineCompatibility.lumpParsers.SurfEdgeParser;
 import renderEngine.sourceEngineCompatibility.lumpParsers.VertexParser;
 import renderEngine.sourceEngineCompatibility.structs.Lump;
 import renderEngine.sourceEngineCompatibility.structs.LumpType;
@@ -47,8 +52,16 @@ public class ValveMapFormatLoader {
         	throw new Exception("Invalid bsp version (supported: "+19+", provided " + version + ")");
         }
         loadLumps(bb);
-        System.out.println(lumps);
-        VertexParser.read();
+        //
+        //
+        //
+        float[] verticesArray = VertexParser.read();
+        float[] normalsArray = NormalsParser.read();
+        float[] textureArray = null;
+
+        //
+        //
+        //
 	}
 	
 	private static void loadLumps(ByteBuffer bb) throws Exception {

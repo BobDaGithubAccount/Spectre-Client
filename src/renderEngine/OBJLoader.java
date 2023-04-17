@@ -84,9 +84,6 @@ public class OBJLoader {
 				normalsArray[normI++] = norm.y;
 				normalsArray[normI++] = norm.z;
 			}
-			//
-			//
-			//
 			return Loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
 		} catch(Exception e) {
 			e.printStackTrace();

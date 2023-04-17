@@ -65,6 +65,4 @@ Data: 0 0 0 0 LUMP_UNKNOWN
 Data: 0 0 0 0 LUMP_UNKNOWN
 Data: 0 0 0 0 LUMP_UNKNOWN
 Data: 0 0 0 0 LUMP_UNKNOWN
-C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.obj
-C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.png
 ----------
