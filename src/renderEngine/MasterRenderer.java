@@ -30,7 +30,7 @@ public class MasterRenderer {
 	
 	private static Map<String, RenderObject> objects = new HashMap<String, RenderObject>();
 	
-	public static Entity entity = Loader.loadObj(Spectre.dragon, new Vector3f(0f,-5f,-10f), new Vector3f(0f,0f,0f), 1);
+	public static Entity entity = Loader.loadObj("level", new Vector3f(0f,-5f,-10f), new Vector3f(0f,0f,0f), 1);
 		
 	public static void init() {
 		if(objects.containsKey(entity.getParent())) {

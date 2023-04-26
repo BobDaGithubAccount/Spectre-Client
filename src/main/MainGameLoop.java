@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import org.lwjgl.opengl.Display;
+import org.lwjgl.util.vector.Vector3f;
 
 import event.EventHandler;
 import logic.F_P_S_TrackingTask;
@@ -18,7 +19,7 @@ import renderEngine.Loader;
 import renderEngine.MasterRenderer;
 import renderEngine.OBJLoader;
 import renderEngine.Renderer;
-import renderEngine.sourceEngineCompatibility.ValveMapFormatLoader;
+//import renderEngine.sourceEngineCompatibility.ValveMapFormatLoader;
 
 public class MainGameLoop {
 	
@@ -34,27 +35,27 @@ public class MainGameLoop {
 	
 	public static void main(String[] args) throws Exception {
 		Logger.init();
-		ValveMapFormatLoader.loadSourceMap("d1_trainstation_02");
-//		EventHandler.init();
-//
-//		DisplayManager.createDisplay();
-//
-//		init();
-//
-//		MasterRenderer.init();
-//		Renderer.initRenderer();
-//
-//		nt.start();
-//
-//		while (!Display.isCloseRequested()) {
-//			fps++;
-//			pollEvents();
-//			MasterRenderer.render();
-//		}
-//
-//		MasterRenderer.cleanUp();
-//		Loader.cleanUp();
-//		DisplayManager.closeDisplay();
+//		ValveMapFormatLoader.loadSourceMap("d1_trainstation_02");
+		EventHandler.init();
+
+		DisplayManager.createDisplay();
+
+		init();
+
+		MasterRenderer.init();
+		Renderer.initRenderer();
+
+		nt.start();
+
+		while (!Display.isCloseRequested()) {
+			fps++;
+			pollEvents();
+			MasterRenderer.render();
+		}
+
+		MasterRenderer.cleanUp();
+		Loader.cleanUp();
+		DisplayManager.closeDisplay();
 		Logger.shutdown();
 		System.exit(0);
 	}

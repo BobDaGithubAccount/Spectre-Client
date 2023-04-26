@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="lwjgl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jars/lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/lwjgl_util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/commons-io-2.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/ioutils-b1f26588b5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/gson-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/slick-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/jline-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/jinput.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

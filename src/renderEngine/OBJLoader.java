@@ -11,7 +11,6 @@ import org.lwjgl.util.vector.Vector3f;
 
 import logging.Logger;
 import models.RawModel;
-import renderEngine.sourceEngineCompatibility.lumpParsers.VertexParser;
 
 public class OBJLoader {
 
