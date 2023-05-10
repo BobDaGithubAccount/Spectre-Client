@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ.dataStructure.map;
+package renderEngine.sourceEngineCompatability.dataStructure.map;
 
 import java.util.Collection;
 import java.util.LinkedList;

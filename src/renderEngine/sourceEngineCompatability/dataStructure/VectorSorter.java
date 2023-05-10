@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ.dataStructure;
+package renderEngine.sourceEngineCompatability.dataStructure;
 
 public class VectorSorter {
 	final Vector3 center, normal, pp, qp;

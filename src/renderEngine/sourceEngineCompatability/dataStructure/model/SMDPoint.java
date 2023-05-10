@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ.dataStructure.model;
+package renderEngine.sourceEngineCompatability.dataStructure.model;
 
 import com.lathrum.VMF2OBJ.dataStructure.Vector3;
 

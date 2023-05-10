@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ.dataStructure.texture;
+package renderEngine.sourceEngineCompatability.dataStructure.texture;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

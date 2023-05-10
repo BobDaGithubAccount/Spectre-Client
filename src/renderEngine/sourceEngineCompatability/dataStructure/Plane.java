@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ.dataStructure;
+package renderEngine.sourceEngineCompatability.dataStructure;
 
 import com.lathrum.VMF2OBJ.dataStructure.map.Side;
 

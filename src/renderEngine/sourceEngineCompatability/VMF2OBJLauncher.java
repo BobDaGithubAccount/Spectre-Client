@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ;
+package renderEngine.sourceEngineCompatability;
 
 import java.util.logging.Formatter;
 import java.util.logging.Handler;

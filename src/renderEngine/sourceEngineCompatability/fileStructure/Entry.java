@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ.fileStructure;
+package renderEngine.sourceEngineCompatability.fileStructure;
 
 import java.io.File;
 import java.io.IOException;

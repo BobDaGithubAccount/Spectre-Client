@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ.dataStructure.map;
+package renderEngine.sourceEngineCompatability.dataStructure.map;
 
 public class Solid {
 	public String id;

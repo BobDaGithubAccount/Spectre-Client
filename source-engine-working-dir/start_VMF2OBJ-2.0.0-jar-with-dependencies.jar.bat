@@ -1,0 +1,1 @@
+start jdk-17.0.6+10/bin/javaw.exe -jar VMF2OBJ-2.0.0-jar-with-dependencies.jar

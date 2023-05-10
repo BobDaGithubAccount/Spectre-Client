@@ -1,4 +1,4 @@
-package com.lathrum.VMF2OBJ;
+package renderEngine.sourceEngineCompatability;
 
 import java.nio.file.Path;
 import java.util.ArrayList;

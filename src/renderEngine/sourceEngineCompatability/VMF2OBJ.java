@@ -10,19 +10,19 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import jline.Terminal;
-import renderEngine.sourceEngineCompatability.dataStructure.*;
-import renderEngine.sourceEngineCompatability.dataStructure.model.sourceEngineCompatability.dataStructure.texture.Texture;
-import renderEngine.sourceEngineCompatability.dataStructure.model.sourceEngineCompatability.fileStructure.Entry;
-import renderEngine.sourceEngineCompatability.dataStructure.model.sourceEngineCompatability.fileStructure.FileEntry;
-import renderEngine.sourceEngineCompatability.fileStructure.*;
-import renderEngine.sourceEngineCompatability.dataStructure.map.*;
-import renderEngine.sourceEngineCompatability.dataStructure.texture.*;
-import renderEngine.sourceEngineCompatability.dataStructure.model.*;
-
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
+
+import me.tongfei.progressbar.DelegatingProgressBarConsumer;
+import me.tongfei.progressbar.ProgressBar;
+import me.tongfei.progressbar.ProgressBarBuilder;
+import me.tongfei.progressbar.ProgressBarStyle;
+
+import com.lathrum.VMF2OBJ.fileStructure.*;
+import com.lathrum.VMF2OBJ.dataStructure.*;
+import com.lathrum.VMF2OBJ.dataStructure.map.*;
+import com.lathrum.VMF2OBJ.dataStructure.model.*;
+import com.lathrum.VMF2OBJ.dataStructure.texture.*;
 
 public class VMF2OBJ {
 
