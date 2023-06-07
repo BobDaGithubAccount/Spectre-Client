@@ -1,85 +1,47 @@
-# VMF2OBJ
+# BSPSource
 
-Convert source-engine VMF files from any game into OBJ files with materials (including brushes, displacements, entities, and models)
+BSPSource is a map decompiler for [Source engine](http://developer.valvesoftware.com/wiki/Source) maps, written in Java.
+It decompiles .bsp map files back to .vmf files that can be loaded in Hammer, Valve's official level editor.
 
-Watch a demonstration video:
+BSPSource is based on a reengineered version of [VMEX 0.98g](http://www.bagthorpe.org/bob/cofrdrbob/vmex.html) by Rof, which is no longer developed and lacks support for newer Source engine games.
 
-[![Youtube demonstration](https://img.youtube.com/vi/3CgoCSRIGqI/0.jpg)](https://www.youtube.com/watch?v=3CgoCSRIGqI)
+## Running BSPSource
+1. Download the latest version from the [release](https://github.com/ata4/bspsrc/releases) page. Make sure to download the file named `bspsrc_X.X.X.zip` and **not** the source code.
+2. Extract the contents of the zip file to a new folder.
+3. To run the program, you need to have at least java 8 installed. If you do not, you can download java from several vendors like [Adoptium](https://adoptium.net/).
+4. To launch bspsrc/bspinfo, run the respectively named file. On Windows these are `bspsrc.bat`/`bspinfo.bat` and on Linux `bspsrc.sh`/`bspinfo.sh`
 
-## How to run
+## Frequently asked Questions
 
-Download the latest version from the [Releases](https://github.com/Dylancyclone/VMF2OBJ/releases) page, then double click on the .jar file to open it.
+* **Can you support _\<game\>_:** Generally speaking, most Source engine games should work with BSPSource out of the box, even though they might not be explicitly "supported". If you run into any problems or errors with any particular game/map, feel free to open an [Issue](https://github.com/ata4/bspsrc/issues).\
+Games based on the older goldsrc or on the newer Source 2 engine, are not supported. Their map format wildly differs from the one the Source engine uses. 
+* **Help, all the textures are gray/models are errors:** Most of the time this is due to the materials/models not existing in the base game but rather being embedded in the bsp file. This can frequently happen with workshop maps or with maps using csgo's automcombine prop feature. To make the materials/models visible in hammer, you need to extract the embedded files by checking `Extract embedded files` in the decompiler and then move the contents of the extracted material/model folders into your games material/model folder.
 
-![The VMF2OBJ GUI](demo/gui.jpg)
+## Improvements and changes compared to VMEX 0.98g
 
-Then, simply fill out which VMF file you'd like to convert, and the VPK files (and custom folders) that house the models, materials, etc for the map.
+* Support for more and newer Source engine games up to Dota 2.
+* Support for new entity types:
+	* [func_areaportal](http://developer.valvesoftware.com/wiki/func_areaportal)
+	* [func_areaportalwindow](http://developer.valvesoftware.com/wiki/func_areaportalwindow)
+	* [func_occluder](http://developer.valvesoftware.com/wiki/func_occluder)
+	* [info_lighting](http://developer.valvesoftware.com/wiki/info_lighting)
+* Support for the tools/blocklight texture.
+* Support for compressed and big-endian encoded maps (XBox 360, PS3)
+* Decompiles VMEX maps flagged with protection and at least detects other anti-decompiling methods.
+* Improved support for [prop_static](http://developer.valvesoftware.com/wiki/prop_static) and [info_overlay](http://developer.valvesoftware.com/wiki/info_overlay).
+* Improved console output.
+* New graphical user interface with output window.
+* New command line interface.
+* New integrated pakfile extractor.
+* Numerous bug fixes.
+* Open source.
 
-![An example](demo/example.jpg)
+## Limitations and known bugs
 
-There is also a Command Line Interface:
-
-`java -jar ./VMF2OBJ.jar [VMF_FILE] [args...]`
-
-```
-usage: vmf2obj [VMF_FILE] [args...]
- -h,--help                  Show this message
- -o,--output <arg>          Name of the output files. Defaults to the name
-                            of the VMF file
- -q,--quiet                 Suppress warnings
- -r,--resourcePaths <arg>   Semi-colon separated list of VPK files and
-                            folders for external custom content (such as
-                            materials or models)
- -t,--tools                 Ignore tool brushes
-```
-
-Example:
-
-```
-java -jar .\vmf2obj.jar .\input.vmf -o .\output -r "D:\SteamLibrary\steamapps\common\Half-Life 2\hl2\hl2_misc_dir.vpk;D:\SteamLibrary\steamapps\common\Half-Life 2\hl2\hl2_textures_dir.vpk;C:\path\to\custom\content\;C:\path\to\more\custom\content\" -t
-```
-
-## Building
-
-To build the app from source, simply run:
-
-`mvn package`
-
-The compiled .jar file will be placed in the `target` directory.
-
-## Packaged Dependencies
-
-This project packages the following software and uses them during the conversion process. This project would not be possible without them.
-
-- [VTFLib by Nem](http://nemesis.thewavelength.net/index.php?p=40) v1.3.3
-- [Crowbar-Command-Line by ZeqMacaw and UltraTechX](https://github.com/UltraTechX/Crowbar-Command-Line) 0.68-v1
-
-## Support
-
-- Brushes
-- Displacements
-- Materials
-  - Textures
-  - Bump Maps
-  - Transparency
-- Brush Entities
-- prop\_\* Entities
-  - Geometry
-  - Geometry Normals
-  - Materials
-
-### Unsupported Features
-
-These are features that I don't have any plans to implement, either because I don't know how to, or the feature is too inconsistant, or would require extreme reworks to the current implementation. Of course, if you have an idea on how to implement any of these please feel free to submit a PR or issue discussing the idea.
-
-- [ ] prop\_\* skins
-  - Textures are defined per triangle in a model's decompiled SMD, but skins are defined in it's QC file. I don't know of a good way to line up skins with multiple textures to a single model. I would theoretically be possible to implement single-material skins, but the results may end up being inconsistent and produce unexpected results.
-- [ ] Displacement blend materials
-  - All the data needed for a blend material is included in the displacement object, but in order to implement it into an obj object either a separate texture must be generated with the blend built in, or a per-vertex material must be applied and blended between. The downsides of the first option is that it requires a lot of processing before hand (and Java's compatibility with Targa files is kinda potato at best), and the resulting texture is not editable. The downside of the second option is that the each vertex has to be either entirely one texture or entirely the other, and the linear blend will always go between the two. This will make for very strange looking textures when comparing it to the hammer counterpart, and it would require a complete rework of how the application handles textures. The perfect-world solution is to use a format that supports this kind of thing out of the box, but then you loose compatibility pretty quickly.
-- [ ] infodecal
-  - infodecal entities don't store any data about where the decal is displayed, meaning it is projected from it's origin to the brush and clipped/sized accordingly. I personally don't know enough about how this process is done, and I don't feel comfortable trying to brute force it. I looked around for the source code associated with it, but I could not find anything to reverse engineer. I know it's a pretty important feature, but I don't know how to make it work _correctly_.
-- [ ] info_overlay
-  - info_overlay is basically nextgen infodecal. Instead of just projecting to one side, an info_overlay can be projected to multiple faces, including different orientations and brushes so that the decal can "wrap" around. Again, I honestly don't really know how to approach this without brute forcing every face to create a separate object with it's own UV wrapping. And that doesn't even include the fact that info_overlays can be distorted before being placed.
-
-## Other Notes
-
-Depending on where you import the converted result to, you might run into a problem where all the geometry looks very dark. This is due to the Source engine using additional normal data that might cause side effects in other software. In Blender, this can be solved with [this quick script](https://gist.github.com/Dylancyclone/d9bd1b53dbdd02702814661d8d82be5d). Simply select all the objects, and run this script in a new text editor. See [this](https://youtu.be/3CgoCSRIGqI?t=334) for more information.
+* Some internal entities that are entirely consumed by vbsp can't be restored. This includes following entities:
+	* [func_instance](http://developer.valvesoftware.com/wiki/func_instance)
+	* [func_instance_parms](http://developer.valvesoftware.com/wiki/func_instance_parms)
+	* [func_instance_origin](http://developer.valvesoftware.com/wiki/func_instance_origin)
+	* [func_viscluster](http://developer.valvesoftware.com/wiki/func_viscluster)
+	* [info_no_dynamic_shadow](http://developer.valvesoftware.com/wiki/info_no_dynamic_shadow)
+* [CS:GO] prop_static have `Enable Bounced Lighting` always set to default. This is due to this information being lost on compilation.

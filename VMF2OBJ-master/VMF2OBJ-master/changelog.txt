@@ -1,0 +1,31 @@
+5/24/2022 2.0.0:
++ Added GUI version of application. The GUI is accessible by double-clicking on the .jar file, while the CLI is still accessible through the terminal
+* Vertices that are within 0.2 units of each other will be merged together, greatly reducing the number of extraneous vertices when dealing with complex brushes
+* Fix colinear and equidistant points causing a crash
+* Fix brushes having inverted normals
+* Fix displacements being exported incorrectly
+* Fix compatibility with new large VMT files
+* Fix compatibility with VMT files that have GPU conditional statements
+* Fix achievement arrays causing crashes
+
+4/27/2021 1.1.3:
+* Improve transparent material compatibility
+* Fix handling materials with keyless commands/values
+* Move all temporary files to system temp folder
+
+7/08/2020 1.1.2:
+* Massively improve conversion speed (up to 670% on large maps)
+* Fix Crowbar `DecompileFolderForEachModelIsChecked` setting causing issues
+* Improved exception reporting
+* The app will now print the version number at the beginning of the conversion process and at the top of generated files
+
+6/29/2020 1.1.1:
+* Fix displacements
+* Fix some models' QC being unfindable
+
+6/28/2020 1.1.0:
++ Add support for multiple external paths
++ Add support for CS:GO's unformscale prop keyvalue
+
+6/27/2020 1.0.0:
++ Initial Release

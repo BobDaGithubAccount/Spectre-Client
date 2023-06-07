@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/EFFECTS/COMBINESHIELD/COMSHIELDWALL2.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/d1_trainstation_02/c-4276_16_9"
+		"Proxies"
+		{
+		}
+	}
+}

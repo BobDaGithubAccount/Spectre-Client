@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/WOOD/WOODWALL014B.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/d1_trainstation_02/c-2195_-745_115"
+	}
+}

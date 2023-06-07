@@ -1,3 +1,4 @@
 ----------
-C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\level\level.obj
-C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\level\level.png
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.obj
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.png
+----------

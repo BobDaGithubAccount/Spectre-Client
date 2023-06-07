@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/BUILDING_TEMPLATE/BUILDING_TEMPLATE012D.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/d1_trainstation_02/c-1548_-2700_254"
+	}
+}
