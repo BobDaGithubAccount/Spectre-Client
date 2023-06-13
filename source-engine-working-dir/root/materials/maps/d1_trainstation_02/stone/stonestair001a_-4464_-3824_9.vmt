@@ -1,8 +1,0 @@
-"patch"
-{
-	"include"		"materials/STONE/STONESTAIR001A.vmt"
-	"replace"
-	{
-		"$envmap"		"maps/d1_trainstation_02/c-4464_-3824_9"
-	}
-}

@@ -10,12 +10,5 @@
 	<classpathentry kind="lib" path="lib/jars/lwjgl_util.jar"/>
 	<classpathentry kind="lib" path="lib/jars/lwjgl.jar"/>
 	<classpathentry kind="lib" path="lib/jars/slick-util.jar"/>
-	<classpathentry kind="lib" path="lib/jars/ioutils-b1f26588b5.jar"/>
-	<classpathentry kind="lib" path="lib/jars/commons-io-2.11.0.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/Spectre-Client/lib/jars/commons-io-2.11.0-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="lib/jars/obj-0.4.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

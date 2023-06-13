@@ -1,8 +1,0 @@
-"patch"
-{
-	"include"		"materials/STONE/STONEFLOOR006B.vmt"
-	"replace"
-	{
-		"$envmap"		"maps/d1_trainstation_02/c-2170_-2494_69"
-	}
-}

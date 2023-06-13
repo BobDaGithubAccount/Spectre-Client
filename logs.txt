@@ -1,4 +1,4 @@
 ----------
-C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.obj
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\bugatti\bugatti.obj
 C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\essential\essential.png
 ----------

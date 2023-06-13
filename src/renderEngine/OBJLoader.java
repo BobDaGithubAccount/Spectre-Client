@@ -11,10 +11,6 @@ import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
-import de.javagl.obj.Obj;
-import de.javagl.obj.ObjData;
-import de.javagl.obj.ObjReader;
-import de.javagl.obj.ObjUtils;
 import logging.Logger;
 import models.RawModel;
 
@@ -22,7 +18,7 @@ public class OBJLoader {
 	
 	public static RawModel loadObjModel(String fileName) {
 		try {
-			File file = new File(OBJLoaderBak.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());
+			File file = new File(OBJLoader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());
 			Logger.log(file.getPath());
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line;
