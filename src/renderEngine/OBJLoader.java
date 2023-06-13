@@ -1,8 +1,16 @@
 package renderEngine;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.lwjgl.util.vector.Vector2f;
+import org.lwjgl.util.vector.Vector3f;
+
 import de.javagl.obj.Obj;
 import de.javagl.obj.ObjData;
 import de.javagl.obj.ObjReader;
@@ -11,7 +19,7 @@ import logging.Logger;
 import models.RawModel;
 
 public class OBJLoader {
-
+	
 	public static RawModel loadObjModel(String fileName) {
 		try {
 			File file = new File(OBJLoader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());

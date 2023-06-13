@@ -1,5 +1,7 @@
 package models;
 
+import renderEngine.Loader;
+
 public class RawModels {
 
 	public static float[] vertices = {			
@@ -115,12 +117,9 @@ public class RawModels {
 	};
 
 	
-//	public static Entity getErrorCube(Vector3f location, Vector3f rotation) {
-//		RawModel model = Loader.loadToVAO(vertices, indices, textureCoords, normals);
-//		ModelTexture texture = new ModelTexture(Loader.loadTexture("essential"));
-//		TexturedModel texturedModel = new TexturedModel(model, texture);
-//		Entity entity = new Entity(texturedModel, location, rotation, 1f);
-//		return entity;
-//	}
+	public static RawModel getErrorCube() {
+		RawModel model = Loader.loadToVAO(vertices, indices, textureCoords, normals);
+		return model;
+	}
 	
 }

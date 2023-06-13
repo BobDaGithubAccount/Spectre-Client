@@ -7,6 +7,7 @@ import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
@@ -20,6 +21,7 @@ import org.newdawn.slick.opengl.TextureLoader;
 import entities.Entity;
 import logging.Logger;
 import models.RawModel;
+import models.RawModels;
 import models.TexturedModel;
 import textures.ModelTexture;
 
@@ -27,6 +29,17 @@ public class Loader {
 
 	public static Entity loadObj(String fileName, Vector3f location, Vector3f rotation, float scale) {
 		RawModel model = OBJLoader.loadObjModel(fileName);
+		if(model==null) {
+			String name = UUID.randomUUID().toString();
+			RawModel model1 = RawModels.getErrorCube();
+			ModelTexture texture = new ModelTexture(loadTexture("essential"));
+			TexturedModel texturedModel = new TexturedModel(model1, texture);
+			Entity entity = new Entity(name, name, location, rotation, 1f);
+			HashMap<String, Entity> instances = new HashMap<String, Entity>();
+			instances.put(entity.getName(), entity);
+			MasterRenderer.setObject(name, new RenderObject(instances, texturedModel));
+			return entity;
+		}
 		ModelTexture texture = new ModelTexture(loadTexture(fileName));
 		TexturedModel texturedModel = new TexturedModel(model, texture);
 		Entity entity = new Entity(fileName, fileName, location, rotation, 1f);
