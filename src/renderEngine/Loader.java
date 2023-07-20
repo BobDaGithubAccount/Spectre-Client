@@ -29,13 +29,13 @@ public class Loader {
 
 	public static Entity loadLevel(String fileName) {
 		try {
-			File file = new File(Loader.class.getResource("../res/levels/" + fileName + ".level").getFile());
+			File file = new File(Loader.class.getResource("../res/levels/" + fileName + ".obj").getFile());
 			System.out.println(file);
 			Object[] returned = OBJLoader.loadLevelModel(file);
 			RawModel model = (RawModel) returned[0];
 			ModelTexture texture = new ModelTexture(loadTexture("essential"));
 			TexturedModel texturedModel = new TexturedModel(model, texture);
-			Entity entity = new Entity(fileName, fileName, new Vector3f(0,0,0), new Vector3f(0,0,0), (float) returned[1]);
+			Entity entity = new Entity(fileName, fileName, (Vector3f) returned[1], (Vector3f) returned[2], (float) returned[3]);
 			HashMap<String, Entity> instances = new HashMap<String, Entity>();
 			instances.put(entity.getName(), entity);
 			MasterRenderer.setObject(fileName, new RenderObject(instances, texturedModel));

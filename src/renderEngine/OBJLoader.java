@@ -30,6 +30,8 @@ public class OBJLoader {
 			float[] textureArray = null;
 			int[] indicesArray = null;
 			float scale = 1f;
+			Vector3f position = new Vector3f(0,0,0);
+			Vector3f rotation = new Vector3f(0,0,0);
 			while (true) {
 				line = br.readLine();
 				if(line==null) {break;}
@@ -59,8 +61,10 @@ public class OBJLoader {
 					rawindices.add(Integer.parseInt(vertex3[0]));
 					rawindices.add(Integer.parseInt(vertex3[1]));
 					rawindices.add(Integer.parseInt(vertex3[2]));
-				} else if(line.startsWith("scale")) {
-					scale = Float.parseFloat(currentLine[1]);
+				} else if(line.startsWith("leveldata")) {
+					position = new Vector3f(Float.parseFloat(currentLine[1]), Float.parseFloat(currentLine[2]), Float.parseFloat(currentLine[3]));
+					rotation = new Vector3f(Float.parseFloat(currentLine[4]), Float.parseFloat(currentLine[5]), Float.parseFloat(currentLine[6]));
+					scale = Float.parseFloat(currentLine[7]);
 				}
 			}
 			br.close();
@@ -87,9 +91,11 @@ public class OBJLoader {
 				normalsArray[normI++] = norm.y;
 				normalsArray[normI++] = norm.z;
 			}
-			Object[] object = new Object[2];
+			Object[] object = new Object[4];
 			object[0] = Loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
-			object[1] = scale;
+			object[1] = position;
+			object[2] = rotation;
+			object[3] = scale;
 			return object;
 			
 		} catch(Exception e) {

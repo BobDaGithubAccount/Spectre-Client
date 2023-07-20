@@ -1,5 +1,5 @@
 ----------
 C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.obj
 C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.png
-C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\levels\level.level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\levels\level.obj
 C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\essential\essential.png
