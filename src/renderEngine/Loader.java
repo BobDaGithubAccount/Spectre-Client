@@ -27,6 +27,34 @@ import textures.ModelTexture;
 
 public class Loader {
 
+	public static Entity loadLevel(String fileName) {
+		try {
+			File file = new File(Loader.class.getResource("../res/levels/" + fileName + ".level").getFile());
+			System.out.println(file);
+			Object[] returned = OBJLoader.loadLevelModel(file);
+			RawModel model = (RawModel) returned[0];
+			ModelTexture texture = new ModelTexture(loadTexture("essential"));
+			TexturedModel texturedModel = new TexturedModel(model, texture);
+			Entity entity = new Entity(fileName, fileName, new Vector3f(0,0,0), new Vector3f(0,0,0), (float) returned[1]);
+			HashMap<String, Entity> instances = new HashMap<String, Entity>();
+			instances.put(entity.getName(), entity);
+			MasterRenderer.setObject(fileName, new RenderObject(instances, texturedModel));
+			return entity;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			String name = UUID.randomUUID().toString();
+			RawModel model1 = RawModels.getErrorCube();
+			ModelTexture texture = new ModelTexture(loadTexture("essential"));
+			TexturedModel texturedModel = new TexturedModel(model1, texture);
+			Entity entity = new Entity(name, name, new Vector3f(0,0,0), new Vector3f(0,0,0), 1f);
+			HashMap<String, Entity> instances = new HashMap<String, Entity>();
+			instances.put(entity.getName(), entity);
+			MasterRenderer.setObject(name, new RenderObject(instances, texturedModel));
+			return entity;
+		}
+	}
+	
 	public static Entity loadObj(String fileName, Vector3f location, Vector3f rotation, float scale) {
 		RawModel model = OBJLoader.loadObjModel(fileName);
 		if(model==null) {
