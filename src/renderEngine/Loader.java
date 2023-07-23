@@ -29,9 +29,9 @@ public class Loader {
 
 	public static Entity loadLevel(String fileName) {
 		try {
-			File file = new File(Loader.class.getResource("../res/levels/" + fileName + ".obj").getFile());
+			File file = new File(Loader.class.getResource("../res/levels/" + fileName + ".level").getFile());
 			System.out.println(file);
-			Object[] returned = OBJLoader.loadLevelModel(file);
+			Object[] returned = GeometryLoader.loadLevelModel(file);
 			RawModel model = (RawModel) returned[0];
 			ModelTexture texture = new ModelTexture(loadTexture("essential"));
 			TexturedModel texturedModel = new TexturedModel(model, texture);
@@ -56,7 +56,7 @@ public class Loader {
 	}
 	
 	public static Entity loadObj(String fileName, Vector3f location, Vector3f rotation, float scale) {
-		RawModel model = OBJLoader.loadObjModel(fileName);
+		RawModel model = GeometryLoader.loadObjModel(fileName);
 		if(model==null) {
 			String name = UUID.randomUUID().toString();
 			RawModel model1 = RawModels.getErrorCube();

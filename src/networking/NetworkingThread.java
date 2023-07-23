@@ -19,6 +19,14 @@ import renderEngine.MasterRenderer;
 
 public class NetworkingThread extends Thread {
 	
+	private String ip;
+	private int port;
+	
+	public NetworkingThread(String ip, int port) {
+		this.ip = ip;
+		this.port = port;
+	}
+	
 	Socket socket;
 	InputStream is;
 	OutputStream os;
@@ -48,7 +56,7 @@ public class NetworkingThread extends Thread {
 		public void run() {
 			if((new Date().getTime() - lastPingReceived) > 10000) {
 				System.out.println("Connection timed out!");
-				System.exit(0);
+				System.exit(-1);
 				return;
 			}
 			timer.schedule(new TimeoutTask(), 1000);
@@ -59,7 +67,7 @@ public class NetworkingThread extends Thread {
 	@Override
 	public void run() {
 	    try {
-			socket = new Socket("localhost",3000);
+			socket = new Socket(ip,port);
 			Logger.log("Connection created!");
 			is = socket.getInputStream();
 			os = socket.getOutputStream();

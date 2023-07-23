@@ -4,8 +4,6 @@
     <libelement value="jar://$MODULE_DIR$/lib/jars/lwjgl_util.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/jars/lwjgl.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/jars/slick-util.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/lib/jars/ioutils-b1f26588b5.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/lib/jars/commons-io-2.11.0.jar!/" />
     <src_description expected_position="1">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="1" />
     </src_description>
@@ -18,7 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library name="lwjgl_util.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/jars/lwjgl_util.jar!/" />
@@ -27,7 +25,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library name="lwjgl.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/jars/lwjgl.jar!/" />
@@ -36,7 +34,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library name="slick-util.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/jars/slick-util.jar!/" />
@@ -45,26 +43,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library name="ioutils-b1f26588b5.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jars/ioutils-b1f26588b5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="commons-io-2.11.0.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jars/commons-io-2.11.0.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$MODULE_DIR$/lib/jars/commons-io-2.11.0-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="lwjgl" level="project" />
+    <orderEntry type="library" exported="" name="natives" level="project" />
   </component>
 </module>

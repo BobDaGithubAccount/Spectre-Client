@@ -2,6 +2,6 @@ package main;
 
 public class Spectre {
 
-	public static String dragon = "dragon1";
+	public static String playerModelName = "dragon1";
 	
 }

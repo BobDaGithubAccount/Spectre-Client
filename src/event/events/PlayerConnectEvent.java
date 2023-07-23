@@ -18,7 +18,7 @@ public class PlayerConnectEvent implements IEvent {
 
 	@Override
 	public boolean run(JSONObject json) {
-		Entity player = new Entity(json.getString("uuid"), Spectre.dragon, new Vector3f(0f,0f,0f), new Vector3f(0f,0f,0f), 1);
+		Entity player = new Entity(json.getString("uuid"), Spectre.playerModelName, new Vector3f(0f,0f,0f), new Vector3f(0f,0f,0f), 1);
 		MasterRenderer.pushInstance(player.getParent(), player);
 		return false;
 	}

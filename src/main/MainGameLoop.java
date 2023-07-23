@@ -17,7 +17,7 @@ import networking.NetworkingThread;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
-import renderEngine.OBJLoader;
+import renderEngine.GeometryLoader;
 import renderEngine.Renderer;
 //import renderEngine.sourceEngineCompatibility.ValveMapFormatLoader;
 
@@ -31,18 +31,16 @@ public class MainGameLoop {
 	public static F_P_S_TrackingTask fpstask = new F_P_S_TrackingTask(1000);
 	public static TPS_Task gameClock = new TPS_Task(50); //20 tps
 	
-	public static NetworkingThread nt = new NetworkingThread();
+	public static NetworkingThread nt = new NetworkingThread("localhost",3000);
 	
 	public static void main(String[] args) throws Exception {
 		Logger.init();
-//		ValveMapFormatLoader.loadSourceMap("d1_trainstation_02");
 		EventHandler.init();
 
 		DisplayManager.createDisplay();
 
 		init();
-
-		MasterRenderer.init();
+		
 		Renderer.initRenderer();
 
 		nt.start();

@@ -15,7 +15,7 @@ public class PlayerDisconnectEvent implements IEvent {
 
 	@Override
 	public boolean run(JSONObject json) {
-		MasterRenderer.deleteInstance(Spectre.dragon, json.getString("uuid"));
+		MasterRenderer.deleteInstance(Spectre.playerModelName, json.getString("uuid"));
 		return false;
 	}
 	

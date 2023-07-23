@@ -14,7 +14,7 @@ import org.lwjgl.util.vector.Vector3f;
 import logging.Logger;
 import models.RawModel;
 
-public class OBJLoader {
+public class GeometryLoader {
 	
 	public static Object[] loadLevelModel(File file) {
 		try {
@@ -106,7 +106,7 @@ public class OBJLoader {
 	
 	public static RawModel loadObjModel(String fileName) {
 		try {
-			File file = new File(OBJLoader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());
+			File file = new File(GeometryLoader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());
 			Logger.log(file.getPath());
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line;

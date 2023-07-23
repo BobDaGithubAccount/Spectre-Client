@@ -13,7 +13,10 @@ public class Logger {
 	public static void init() {
 		try {
 		File jarFile = new File(Logger.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-		File logFile = new File(jarFile.getParent() + "/logs.txt");
+		long time = new Date().getTime();
+		File logsFile = new File(jarFile.getParent() + "/logs");
+		logsFile.mkdirs();
+		File logFile = new File(logsFile.getPath() + "/" + time +".txt");
 		logFile.delete();
 		logFile.createNewFile();
 		fw = new FileWriter(logFile);

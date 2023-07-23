@@ -30,21 +30,21 @@ public class MasterRenderer {
 	
 	private static Map<String, RenderObject> objects = new HashMap<String, RenderObject>();
 	
-	public static Entity entity = Loader.loadObj("dragon1", new Vector3f(0f,0f,0f), new Vector3f(0f,180f,0f), 0.01f);
+//	public static Entity entity = Loader.loadObj("dragon1", new Vector3f(0f,0f,0f), new Vector3f(0f,180f,0f), 0.01f);
 	public static Entity level = Loader.loadLevel("level");
 		
-	public static void init() {
-		if(objects.containsKey(entity.getParent())) {
-			RenderObject ro = objects.get(entity.getParent());
-			TexturedModel model = ro.model;
-			ModelTexture t = model.getTexture();
-			t.setShineDamper(1f);
-			t.setReflectivity(0.5f);
-			model.setTexture(t);
-			ro.model = model;
-			objects.put(entity.getParent(), ro);
-		}
-	}
+//	public static void init() {
+//		if(objects.containsKey(entity.getParent())) {
+//			RenderObject ro = objects.get(entity.getParent());
+//			TexturedModel model = ro.model;
+//			ModelTexture t = model.getTexture();
+//			t.setShineDamper(1f);
+//			t.setReflectivity(0.5f);
+//			model.setTexture(t);
+//			ro.model = model;
+//			objects.put(entity.getParent(), ro);
+//		}
+//	}
 	
 	public static void render() {
 		Map<String, RenderObject> objectsCopy = objects;
