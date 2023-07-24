@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
@@ -27,11 +24,11 @@ import textures.ModelTexture;
 
 public class Loader {
 
-	public static Entity loadLevel(String fileName) {
+	public static Entity loadLevel(File file) {
 		try {
-			File file = new File(Loader.class.getResource("../res/levels/" + fileName + ".level").getFile());
-			System.out.println(file);
-			Object[] returned = GeometryLoader.loadLevelModel(file);
+			String fileName = file.getName();
+			Object[] returned = GeometryLoader.loadLevel(file);
+			assert returned != null;
 			RawModel model = (RawModel) returned[0];
 			ModelTexture texture = new ModelTexture(loadTexture("essential"));
 			TexturedModel texturedModel = new TexturedModel(model, texture);

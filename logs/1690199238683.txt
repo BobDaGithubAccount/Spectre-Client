@@ -1,0 +1,7 @@
+----------
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.obj
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\dragon1\dragon1.png
+C:\Users\duckb\eclipse-workspace\Spectre-Client\server-levels\localhost.level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\essential\essential.png
+Connection created!
+----------

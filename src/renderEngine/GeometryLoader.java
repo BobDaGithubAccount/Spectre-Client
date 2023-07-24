@@ -1,22 +1,19 @@
 package renderEngine;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
+import logging.Logger;
+import models.RawModel;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
-import logging.Logger;
-import models.RawModel;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GeometryLoader {
 	
-	public static Object[] loadLevelModel(File file) {
+	public static Object[] loadLevel(File file) {
 		try {
 			Logger.log(file.getPath());
 			BufferedReader br = new BufferedReader(new FileReader(file));
@@ -100,7 +97,8 @@ public class GeometryLoader {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-			return null;		}
+			return null;
+		}
 	}
 
 	

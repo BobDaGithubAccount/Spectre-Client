@@ -1,0 +1,5 @@
+----------
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\levels\level.level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\essential\essential.png
+Connection created!
+Connection timed out!

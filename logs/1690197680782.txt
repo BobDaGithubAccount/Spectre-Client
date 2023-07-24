@@ -1,0 +1,5 @@
+----------
+Connection created!
+C:\Users\duckb\eclipse-workspace\Spectre-Client\server-levels\localhost.level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\bin\res\objects\essential\essential.png
+----------

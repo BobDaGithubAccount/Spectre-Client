@@ -1,5 +1,6 @@
 package renderEngine;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -31,7 +32,7 @@ public class MasterRenderer {
 	private static Map<String, RenderObject> objects = new HashMap<String, RenderObject>();
 	
 //	public static Entity entity = Loader.loadObj("dragon1", new Vector3f(0f,0f,0f), new Vector3f(0f,180f,0f), 0.01f);
-	public static Entity level = Loader.loadLevel("level");
+//	public static Entity level = Loader.loadLevel(new File("C:\\Users\\duckb\\eclipse-workspace\\Spectre-Client\\server-levels\\localhost.level"));
 		
 //	public static void init() {
 //		if(objects.containsKey(entity.getParent())) {

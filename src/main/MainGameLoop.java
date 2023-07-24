@@ -5,14 +5,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 
+import logic.*;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
 
 import event.EventHandler;
-import logic.F_P_S_TrackingTask;
-import logic.InputTask;
-import logic.Scheduler;
-import logic.TPS_Task;
 import networking.NetworkingThread;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
@@ -30,9 +27,13 @@ public class MainGameLoop {
 	public static InputTask it = new InputTask(10);
 	public static F_P_S_TrackingTask fpstask = new F_P_S_TrackingTask(1000);
 	public static TPS_Task gameClock = new TPS_Task(50); //20 tps
-	
-	public static NetworkingThread nt = new NetworkingThread("localhost",3000);
-	
+	public static LoadLevelTask loadLevelTask = new LoadLevelTask(20);
+
+	public static String ip = "localhost";
+	public static int port = 3000;
+
+	public static NetworkingThread nt = new NetworkingThread(ip,port);
+
 	public static void main(String[] args) throws Exception {
 		Logger.init();
 		EventHandler.init();
@@ -76,6 +77,7 @@ public class MainGameLoop {
 		pushTaskToStack(it);
 		pushTaskToStack(fpstask);
 		pushTaskToStack(gameClock);
+		pushTaskToStack(loadLevelTask);
 	}
 	
 	public static void pushTaskToStack(Scheduler s) {

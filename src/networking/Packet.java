@@ -49,8 +49,7 @@ public class Packet {
 		JSONObject packet = new JSONObject();
 		packet.put(packet_type, SInitPacket);
 		packet.put(protocol_version, protocolVersion);
-		packet.put("scene", "Spectre.scene");
-		packet.put("level", "Spectre.level");
+		packet.put("port" , "Settings.httpPortNumber");
 		return packet;
 	}
 	public static String SDisconnectPacket = "S-DISCONNECT";

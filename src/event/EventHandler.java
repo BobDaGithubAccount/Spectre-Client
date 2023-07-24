@@ -3,6 +3,7 @@ package event;
 import event.events.PlayerConnectEvent;
 import event.events.PlayerDisconnectEvent;
 import event.events.PlayerMoveEvent;
+import event.events.s2cInitEvent;
 import lib.json.JSONObject;
 import networking.Packet;
 
@@ -11,6 +12,8 @@ import java.util.HashMap;
 
 public class EventHandler {
 	public static HashMap<String, ArrayList<IEvent>> events = new HashMap<String, ArrayList<IEvent>>();
+
+	public static boolean levelLoaded = false;
 
 	public static void pollPacket(JSONObject json) {
 		try {
@@ -51,6 +54,7 @@ public class EventHandler {
 		addEventListener(Packet.SConnectPacket, new PlayerConnectEvent());
 		addEventListener(Packet.SDisconnectPacket, new PlayerDisconnectEvent());
 		addEventListener(Packet.SMovePacket, new PlayerMoveEvent());
+		addEventListener(Packet.SInitPacket, new s2cInitEvent());
 	}
 
 }
