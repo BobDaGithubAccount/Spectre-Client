@@ -39,6 +39,7 @@ public class Loader {
 			return entity;
 		}
 		catch(Exception e) {
+			Logger.log(e.getMessage());
 			e.printStackTrace();
 			String name = UUID.randomUUID().toString();
 			RawModel model1 = RawModels.getErrorCube();
@@ -103,10 +104,12 @@ public class Loader {
 	public static int loadTexture(String fileName) {
 		Texture texture = null;
 		try {
-			File file = new File(Loader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".png").getFile());
+			File jarFile = new File(Logger.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+			File file = new File(jarFile.getParent() + "/res/objects/" + fileName + "/" + fileName + ".png");
 			Logger.log(file.getPath());
 			texture = TextureLoader.getTexture("PNG", new FileInputStream(file.getPath()));
 		} catch (Exception e) {
+			Logger.log(e.getMessage());
 			e.printStackTrace();
 			return -1;
 		}

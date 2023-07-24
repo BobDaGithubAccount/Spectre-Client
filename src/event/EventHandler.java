@@ -5,6 +5,7 @@ import event.events.PlayerDisconnectEvent;
 import event.events.PlayerMoveEvent;
 import event.events.s2cInitEvent;
 import lib.json.JSONObject;
+import logging.Logger;
 import networking.Packet;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class EventHandler {
 				}
 			}
 		} catch (Exception e) {
+			Logger.log(e.getMessage());
 			e.printStackTrace();
 			return;
 		}

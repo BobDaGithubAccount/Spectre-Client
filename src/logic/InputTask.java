@@ -40,7 +40,7 @@ public class InputTask extends Scheduler {
 		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && canGrab) {
 			canGrab = false;
 			Timer timer = new Timer();
-			timer.schedule(new GrabTask(), 100l);
+			timer.schedule(new GrabTask(), 100L);
 			Mouse.setGrabbed(!Mouse.isGrabbed());
 		}
 		

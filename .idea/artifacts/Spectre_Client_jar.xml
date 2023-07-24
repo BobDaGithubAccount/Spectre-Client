@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Spectre-Client:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Spectre_Client_jar</output-path>
+    <root id="archive" name="Spectre-Client.jar">
+      <element id="module-output" name="Spectre-Client" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/lwjgl.jar" path-in-jar="/" />
+      <element id="library" level="project" name="natives" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/lwjgl_util.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/slick-util.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

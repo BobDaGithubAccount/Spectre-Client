@@ -91,6 +91,7 @@ public class NetworkingThread extends Thread {
 			System.exit(0);
 		} catch (Exception e) {
 			sendJSON(Packet.CDisconnectPacket());
+			Logger.log(e.getMessage());
 			e.printStackTrace();
 			System.exit(-1);
 		}

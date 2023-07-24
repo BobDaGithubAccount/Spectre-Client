@@ -1,0 +1,6 @@
+----------
+Connection created!
+Making request to: http://localhost:8000/level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\out\artifacts\Spectre_Client_jar\server-levels\localhost.level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\out\artifacts\Spectre_Client_jar\Spectre-Client.jar\res\objects\essential\essential.png
+C:\Users\duckb\eclipse-workspace\Spectre-Client\out\artifacts\Spectre_Client_jar\Spectre-Client.jar\res\objects\essential\essential.png (The system cannot find the path specified)

@@ -96,6 +96,7 @@ public class GeometryLoader {
 			return object;
 			
 		} catch(Exception e) {
+			Logger.log(e.getMessage());
 			e.printStackTrace();
 			return null;
 		}
@@ -104,7 +105,8 @@ public class GeometryLoader {
 	
 	public static RawModel loadObjModel(String fileName) {
 		try {
-			File file = new File(GeometryLoader.class.getResource("/res/objects/" + fileName + "/" + fileName + ".obj").getFile());
+			File jarFile = new File(Logger.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+			File file = new File(jarFile.getParent() + "/res/objects/" + fileName + "/" + fileName + ".obj");
 			Logger.log(file.getPath());
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line;
@@ -173,8 +175,10 @@ public class GeometryLoader {
 			}
 			return Loader.loadToVAO(verticesArray, indicesArray, textureArray, normalsArray);
 		} catch(Exception e) {
+			Logger.log(e.getMessage());
 			e.printStackTrace();
-			return null;		}
+			return null;
+		}
 	}
 	
 //	public static RawModel loadObjModel(String fileName) {

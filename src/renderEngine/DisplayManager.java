@@ -1,5 +1,6 @@
 package renderEngine;
 
+import logging.Logger;
 import org.lwjgl.LWJGLException;
 //import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.ContextAttribs;
@@ -27,6 +28,7 @@ public class DisplayManager {
 //			Mouse.setGrabbed(true);
 //			ResourceLoader.setIcon();
 		} catch (LWJGLException e) {
+			Logger.log(e.getMessage());
 			e.printStackTrace();
 		}
 		GL11.glViewport(0, 0, WIDTH, HEIGHT);

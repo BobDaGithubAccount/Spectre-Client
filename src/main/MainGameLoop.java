@@ -41,7 +41,8 @@ public class MainGameLoop {
 		DisplayManager.createDisplay();
 
 		init();
-		
+
+		MasterRenderer.init();
 		Renderer.initRenderer();
 
 		nt.start();

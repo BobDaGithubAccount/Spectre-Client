@@ -32,7 +32,7 @@ public class s2cInitEvent implements IEvent {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(toGet))
                     .build();
-            System.out.println(request.uri());
+            Logger.log("Making request to: " + request.uri());
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String responseString = response.body();
 

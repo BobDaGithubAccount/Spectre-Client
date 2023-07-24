@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Spectre {
 
-	public static String playerModelName = "dragon1";
+	public static String playerModelName = "player";
 
 	public static File levelFile;
 	
