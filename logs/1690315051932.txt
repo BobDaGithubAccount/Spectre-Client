@@ -1,0 +1,8 @@
+----------
+C:\Users\duckb\eclipse-workspace\Spectre-Client\res\objects\player\player.obj
+C:\Users\duckb\eclipse-workspace\Spectre-Client\res\objects\player\player.png
+Connection created!
+Making request to: http://localhost:8000/level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\server-levels\localhost.level
+Making request to: http://localhost:8000/level
+C:\Users\duckb\eclipse-workspace\Spectre-Client\res\objects\essential\essential.png

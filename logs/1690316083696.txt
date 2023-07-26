@@ -1,0 +1,4 @@
+----------
+C:\Users\duckb\eclipse-workspace\Spectre-Client\res\objects\player\player.obj
+C:\Users\duckb\eclipse-workspace\Spectre-Client\res\objects\player\player.png
+----------
